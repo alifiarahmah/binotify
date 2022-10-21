@@ -19,8 +19,9 @@ RUN apt install apache2 supervisor -y
 # END BLOCK
 
 ADD apache2.conf /etc/supervisor/conf.d/apache2.conf
+COPY .htaccess /var/www/html/
 COPY index.php /var/www/html/
+ADD views /var/www/html/
 RUN rm /var/www/html/index.html
-RUN echo "DirectoryIndex index.php" > /var/www/html/.htaccess
 EXPOSE 80
 CMD ["supervisord", "-n"]
