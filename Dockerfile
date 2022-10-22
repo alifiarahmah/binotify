@@ -18,10 +18,19 @@ RUN apt install php php-fpm php-pgsql -y
 RUN apt install apache2 supervisor -y
 # END BLOCK
 
-ADD apache2.conf /etc/supervisor/conf.d/apache2.conf
+# BLOCK Configure supervisor and AllowOverride apache2
+ADD supervisor-apache2.conf /etc/supervisor/conf.d/supervisor-apache2.conf
+RUN a2enmod rewrite
+RUN sed -i -r 's/AllowOverride None$/AllowOverride All/' /etc/apache2/apache2.conf
+# END BLOCK
+
+# COPY files
+ADD app /var/www/html/app
+ADD public /var/www/html/public
 COPY .htaccess /var/www/html/
 COPY index.php /var/www/html/
-ADD views /var/www/html/
 RUN rm /var/www/html/index.html
+# END COPY
+
 EXPOSE 80
 CMD ["supervisord", "-n"]
