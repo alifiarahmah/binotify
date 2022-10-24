@@ -9,6 +9,7 @@ button {
     padding: 1rem 2.5rem;
     border-radius: 20px;
     text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     border: none;
     font-size: 1rem;
