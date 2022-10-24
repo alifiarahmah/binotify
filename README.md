@@ -3,9 +3,19 @@
 ## Development notes
 
 1. Buat branch baru untuk setiap fitur yang akan dikerjakan dengan nama branch `feature/<nama_fitur>`
-2. Setelah selesai mengerjakan fitur, buat pull request ke branch `develop`
-3. Setelah pull request di-merge, hapus branch asal
-4. Jika terdapat bug, buat branch baru dengan nama `fix/<nama_fitur>`
+2. Gunakan semantic commit message
+
+    - fitur baru: `feat(<nama_fitur>): <pesan>`
+    - perbaikan bug: `fix(<nama_fitur>): <pesan>`
+    - perubahan dokumentasi: `docs(<nama_fitur>): <pesan>`
+    - refactor kode: `refactor(<nama_fitur>): <pesan>`
+    - perubahan konfigurasi: `config(<nama_fitur>): <pesan>`
+
+    Jika akan mempengaruhi banyak file, tidak usah menggunakan nama fitur, misal: `docs: ...`
+
+3. Setelah selesai mengerjakan fitur, buat pull request ke branch `develop`
+4. Setelah pull request di-merge, hapus branch asal
+5. Jika terdapat bug, buat branch baru dengan nama `fix/<nama_fitur>`
 
 ### Frontend
 
