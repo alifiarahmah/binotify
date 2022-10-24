@@ -1,3 +1,17 @@
+# binotify
+
+## Development notes
+
+### Frontend
+
+1. Buat controller baru di `app/controllers` sesuai dengan nama fitur. Gunakan PascalCase untuk nama controller
+2. Buat view baru di `app/views/<nama_controller>/<nama_view>`, dengan nama controller lowercase. Untuk nama file view, gunakan snake_case.
+3. Tambahkan view dalam controller.
+    Note: jangan lupa tambahkan views header dan footer yang ada di `app/views/templates`
+4. Jika dibutuhkan style baru, tambahkan style di `public/css/<nama_controller>/<nama_views>.css`. Include style tersebut di `app/views/templates/header.php`
+
+---
+
 ## Panduan Pengerjaan
 Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
 1. Buatlah grup pada Gitlab dengan format "IF3110-2022-KXX-01-YY", dengan XX adalah nomor kelas dan YY adalah nomor kelompok.
