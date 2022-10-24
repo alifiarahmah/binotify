@@ -1,0 +1,25 @@
+/* import here */
+@import "animation.css";
+@import "button.css";
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+}
+
+a {
+    color: var(--yellow);
+}
+
+a:hover {
+    color: var(--yellow-hover);
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
