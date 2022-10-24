@@ -16,7 +16,7 @@
         <?php include 'public/css/components/button.css'; ?>
     </style>
 
-    <title><?= $data['title'] ?></title>
+    <title><?= $data['title'] ?? "binotify" ?></title>
 </head>
 
 <body>
