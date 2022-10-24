@@ -14,6 +14,7 @@
         <?php include 'public/css/typography.css'; ?>
         
         <?php include 'public/css/components/button.css'; ?>
+        <?php include 'public/css/components/input.css'; ?>
     </style>
 
     <title><?= $data['title'] ?? "binotify" ?></title>
