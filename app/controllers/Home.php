@@ -6,9 +6,7 @@ class Home extends Controller
     {
         $data['title'] = 'Listen to all songs';
         $this->view('templates/header', $data);
-        $this->view('templates/navbar', [
-            'role' => 'user'
-        ]);
+        $this->view('templates/navbar');
         $this->view('home/index', [
             'songs' => $this->model('Song_model')->getNSongs(10)
         ]);

@@ -17,8 +17,10 @@
 	<div class="navbar-group">
 		<!-- TODO: bedain auth nggak -->
 		<div class="auth">
-			<?php if ($data['role'] == 'user') { ?>
-				<button class="button-solid">log out</button>
+			<?php if ($data) { ?>
+				<?php if ($data['role'] == 'user') { ?>
+					<button class="button-solid">log out</button>
+				<?php } ?>
 			<?php } else { ?>
 				<button>log in</button>
 				<button class="button-solid">sign up</button>
