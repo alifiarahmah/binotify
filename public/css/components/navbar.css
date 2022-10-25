@@ -1,0 +1,68 @@
+.navbar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5em 1em;
+}
+
+.navbar-group {
+	display: flex;
+	align-items: center;
+}
+
+#drawer-icon {
+	cursor: pointer;
+}
+
+/* #drawer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	opacity: 0;
+	z-index: 5;
+} */
+
+#logo {
+	display: none;
+}
+
+.search-bar {
+	display: none;
+}
+
+.auth {
+	display: none;
+}
+
+
+/* Desktop */
+@media screen and (min-width: 768px) {
+	.navbar {
+		padding: 0.5em 1em;
+	}
+
+	#drawer-icon {
+		display: none;
+	}
+
+	#search-icon {
+		display: none;
+	}
+
+	#logo {
+		display: block;
+		padding-right: 3em;
+	}
+
+	.search-bar {
+		display: flex;
+		align-items: center;
+		padding-left: 1em;
+	}
+
+	.auth {
+		display: block;
+	}
+}

@@ -4,6 +4,7 @@ input {
 	padding: 1em 2em;
 	font-family: 'Poppins', sans-serif;
 	color: var(--text-primary-black);
+	align-items: center;
 }
 
 .input-solid {

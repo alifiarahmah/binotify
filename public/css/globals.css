@@ -1,7 +1,3 @@
-/* import here */
-@import "animation.css";
-@import "button.css";
-
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
@@ -17,7 +13,7 @@ a:hover {
     color: var(--yellow-hover);
 }
 
-.logo {
+#logo {
     font-weight: 700;
     color: var(--yellow);
     text-decoration: none;
