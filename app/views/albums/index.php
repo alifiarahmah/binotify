@@ -26,6 +26,7 @@
 		<?php } ?>
 	</div>
 
+	<?php $base_url = BASE_URL . '/albums' ?>
 	<?php require_once __DIR__ . '/../templates/pagination.php' ?>
 
 </section>
