@@ -19,6 +19,7 @@
         <?php include 'public/css/components/sidebar.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>
+        <?php include 'public/css/views/songdetails.css'; ?>
     </style>
 
     <title><?= $data['title'] ?? "binotify" ?></title>

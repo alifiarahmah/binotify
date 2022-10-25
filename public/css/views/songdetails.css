@@ -1,6 +1,6 @@
-.song-details {
+.song-details-container {
     display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	padding: 0.5rem 1rem;
 }
