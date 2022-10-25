@@ -16,9 +16,11 @@
         <?php include 'public/css/components/button.css'; ?>
         <?php include 'public/css/components/input.css'; ?>
         <?php include 'public/css/components/navbar.css'; ?>
+        <?php include 'public/css/components/sidebar.css'; ?>
         <?php include 'public/css/components/pagination.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>
+        <?php include 'public/css/views/songdetails.css'; ?>
     </style>
 
     <title><?= $data['title'] ?? "binotify" ?></title>
