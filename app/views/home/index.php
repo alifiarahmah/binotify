@@ -9,7 +9,7 @@
             <div class="song-item-data">
                 <p><?= $i + 1 ?></p>
                 <div class="song-picture">
-                    <image src="<?= $song['image_path'] ?>" width="42px" height="42px">
+                    <image src="<?= $song['image_path'] ?? "https://source.unsplash.com/42x42" ?>" width="42px" height="42px">
                 </div>
                 <div>
                     <h3><?= $song['song_title']; ?></h3>
@@ -42,7 +42,7 @@
                 <td>1</td>
                 <td>
                     <div class="song-picture">
-                        <image src="<?= $song['image_path']; ?>" width="42px" height="42px">
+                        <image src="<?= $song['image_path'] ?? "https://source.unsplash.com/42x42" ?>" width="42px" height="42px">
                     </div>
                 </td>
                 <td><?= $song['song_title']; ?></td>

@@ -25,6 +25,7 @@
 .song-picture {
 	width: 42px;
 	height: 42px;
+	background-color: var(--gray);
 }
 
 .song-item h3 {
