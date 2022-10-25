@@ -3,17 +3,17 @@
 </h1>
 
 <!-- single song item (mobile) -->
-<?php foreach ($data['songs'] as $song) { ?>
+<?php foreach ($data['songs'] as $i => $song) { ?>
     <a href="#" class="song-item-container-mobile">
         <div class="song-item">
             <div class="song-item-data">
-                <p>1</p>
+                <p><?= $i + 1 ?></p>
                 <div class="song-picture">
-                    <image src="http://source.unsplash.com/random/42x42">
+                    <image src="<?= $song['image_path'] ?>" width="42px" height="42px">
                 </div>
                 <div>
-                    <h3><?= $song['title']; ?></h3>
-                    <p><?= $song['artist']; ?> · <?= $song['year']; ?> · <?= $song['genre']; ?></p>
+                    <h3><?= $song['song_title']; ?></h3>
+                    <p><?= $song['song_artist']; ?> · <?= $song['release_date']; ?> · <?= $song['genre']; ?></p>
                 </div>
             </div>
             <div>
@@ -42,12 +42,12 @@
                 <td>1</td>
                 <td>
                     <div class="song-picture">
-                        <image src="http://source.unsplash.com/random/42x42">
+                        <image src="<?= $song['image_path']; ?>" width="42px" height="42px">
                     </div>
                 </td>
-                <td><?= $song['title']; ?></td>
-                <td><?= $song['artist']; ?></td>
-                <td><?= $song['year']; ?></td>
+                <td><?= $song['song_title']; ?></td>
+                <td><?= $song['song_artist']; ?></td>
+                <td><?= $song['release_date']; ?></td>
                 <td><?= $song['genre']; ?></td>
                 <td>
                     <div>

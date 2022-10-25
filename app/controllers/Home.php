@@ -10,25 +10,7 @@ class Home extends Controller
             'role' => 'user'
         ]);
         $this->view('home/index', [
-            'songs' => [[
-                'id' => 1,
-                'title' => 'Aku Wanita',
-                'artist' => 'Penyanyi Wanita',
-                'year' => '2092',
-                'genre' => 'Pop'
-            ], [
-                'id' => 2,
-                'title' => 'Aku Pria',
-                'artist' => 'Penyanyi Pria',
-                'year' => '2042',
-                'genre' => 'Pop'
-            ], [
-                'id' => 3,
-                'title' => 'Aku Tidak Tahu',
-                'artist' => 'Penyanyi Tanpa Jenis Kelamin',
-                'year' => '2022',
-                'genre' => 'Pop'
-            ]]
+            'songs' => $this->model('Song_model')->getAllSongs()
         ]);
         $this->view('templates/footer');
     }
