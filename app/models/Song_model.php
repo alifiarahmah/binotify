@@ -19,6 +19,14 @@ class Song_model
 		return $this->db->resultSet();
 	}
 
+	public function getNSongs($number)
+	{
+		$this->db->query("SELECT 
+            song_id, song_title, song_artist, release_date, genre, duration, audio_path, image_path, album_id
+            FROM $this->table ORDER BY song_title ASC LIMIT $number ");
+		return $this->db->resultSet();
+	}
+
 	public function getSongById($id)
 	{
 		$this->db->query("SELECT 

@@ -10,7 +10,7 @@ class Home extends Controller
             'role' => 'user'
         ]);
         $this->view('home/index', [
-            'songs' => $this->model('Song_model')->getAllSongs()
+            'songs' => $this->model('Song_model')->getNSongs(10)
         ]);
         $this->view('templates/footer');
     }
