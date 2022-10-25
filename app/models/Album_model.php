@@ -15,7 +15,7 @@ class Album_model
 	{
 		$this->db->query("SELECT 
             album_id, album_title, album_artist, total_duration, image_path, tanggal_terbit, genre
-            FROM $this->table");
+            FROM $this->table ORDER BY album_title ASC");
 		return $this->db->resultSet();
 	}
 
@@ -27,6 +27,20 @@ class Album_model
 			WHERE id=:id");
 		$this->db->bind('id', $id);
 		return $this->db->single();
+	}
+
+	public function getAlbumNums()
+	{
+		$this->db->query("SELECT COUNT(*) FROM $this->table");
+		return $this->db->single()['COUNT(*)'];
+	}
+
+	public function getAlbums($first_item, $item_per_page)
+	{
+		$this->db->query("SELECT 
+						album_id, album_title, album_artist, total_duration, image_path, tanggal_terbit, genre
+						FROM $this->table ORDER BY album_title ASC LIMIT $first_item, $item_per_page");
+		return $this->db->resultSet();
 	}
 
 	public function addAlbum($data)
