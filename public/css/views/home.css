@@ -1,75 +1,87 @@
-#home {
-	--template-columns: repeat(6, 1fr);
-}
-
-.song-item-container-mobile {
+.song-item-container {
 	color: var(--text-primary);
 	text-decoration: none;
+	display: block;
+	padding: 0.5rem;
+	align-content: center;
+	grid-template-columns: repeat(6, 1fr);
 }
 
-.song-item-container:hover {
-	color: var(--text-primary-black);
+@media screen and (min-width: 768px) {
+	.song-item-container {
+		margin-top: 5vh;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
 }
 
-.song-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+.header-row {
+	display: none;
+	padding: 0.5rem 0;
+	text-transform: uppercase;
+	color: var(--text-secondary);
 }
 
-.song-item:hover {
+@media screen and (min-width: 768px) {
+	.header-row {
+		display: grid;
+	}
+}
+
+.content-row {
+	display: grid;
+	grid-template-areas:
+		"id picture title title title"
+		"id picture artist date genre";
+	padding: 0.5rem 0;
+	text-decoration: none;
+	color: var(--text-primary);
+	grid-column: 1 / -1;
+}
+
+@media screen and (min-width: 768px) {
+	.content-row {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-areas:
+			"id picture title artist date genre";
+	}
+}
+
+.content-row:hover {
 	background-color: var(--grey);
 }
 
-.song-item-data {
-	display: flex;
-	align-items: center;
+.song-number {
+	grid-area: id;
+	align-self: left;
 }
 
 .song-picture {
+	justify-self: left;
+	grid-area: picture;
 	width: 42px;
 	height: 42px;
 	background-color: var(--gray);
 }
 
-.song-item h3 {
-	text-transform: capitalize;
+.song-title {
+	grid-area: title;
 }
 
-.song-item-container-desktop {
-	display: none;
+.song-artist {
+	grid-area: artist;
 }
 
-@media screen and (min-width: 768px) {
+.song-date {
+	grid-area: date;
+}
 
-	.song-item-container-mobile {
-		display: none;
-	}
+.song-date::before {
+	content;
+	margin: 0 0.5rem;
+}
 
-	.song-item-container-desktop {
-		margin-top: 5vh;
-		display: grid;
-		grid-template-columns: var(--template-columns);
-	}
-
-	.header-row {
-		text-transform: uppercase;
-		font-weight: 600;
-	}
-
-	.content-row {
-		grid-column: 1 / span 6;
-		display: grid;
-		grid-template-columns: var(--template-columns);
-		padding: 1rem;
-		text-decoration: none;
-		color: var(--text-primary);
-	}
-
-	.content-row:hover {
-		background-color: var(--grey);
-		color: var(--yellow-hover);
-		cursor: pointer;
-		color: var(--yellow-hover);
-	}
+.song-genre {
+	grid-area: genre;
 }
