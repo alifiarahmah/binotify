@@ -1,0 +1,61 @@
+.song-item-container-mobile {
+	color: var(--text-primary);
+	text-decoration: none;
+}
+
+.song-item-container:hover {
+	color: var(--text-primary-black);
+}
+
+.song-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.song-item:hover {
+	background-color: #f5f5f5;
+}
+
+.song-item-data {
+	display: flex;
+	align-items: center;
+}
+
+.song-picture {
+	width: 42px;
+	height: 42px;
+}
+
+.song-item h3 {
+	text-transform: capitalize;
+}
+
+.song-item-container-desktop {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.song-item-container-mobile {
+		display: none;
+	}
+
+	.song-item-container-desktop {
+		margin-top: 5vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		width: 70vw;
+	}
+
+	.song-item-container-desktop th {
+		color: var(--text-advanced);
+		text-transform: uppercase;
+	}
+
+	.song-item-container-desktop td {
+		border: none;
+		padding: 1rem 2rem;
+	}
+}
