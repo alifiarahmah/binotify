@@ -50,3 +50,7 @@ button:hover {
     border: 2px solid var(--yellow-hover);
     text-decoration: none;
 }
+
+.button-sidebar {
+    padding: 0;
+}
