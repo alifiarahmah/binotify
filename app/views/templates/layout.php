@@ -34,10 +34,7 @@
         </div>
     </div>
     <div class="content-container">
-        <!-- Content -->
-        <div class="content">
-            <?= $this->fetch($data) ?>
-        </div>
+        <?= $this->fetch($data) ?>
     </div>
 </div>
 

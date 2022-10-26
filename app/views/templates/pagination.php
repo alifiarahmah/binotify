@@ -1,5 +1,3 @@
-<!-- TODO: give path configuration for depannya href -->
-<!-- TODO: buat tombol disabled kalo udah mentok hal pertama/terakhir -->
 <!-- TODO:  Ketika memilih page, pengguna tidak diarahkan ke halaman baru, namun daftar lagu langsung berubah di halaman ini. -->
 <div class="pagination-container">
 	<div class="pagination" <?= $data['current_page'] == 1 ? "disabled" : "" ?>>

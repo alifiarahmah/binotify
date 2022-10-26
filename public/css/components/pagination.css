@@ -1,6 +1,7 @@
 .pagination-container {
 	/* center pagination */
 	display: flex;
+	width: 100%;
 	justify-content: center;
 }
 
@@ -14,10 +15,4 @@
 .pagination p {
 	min-width: 100px;
 	text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-	.pagination {
-		display: none;
-	}
 }

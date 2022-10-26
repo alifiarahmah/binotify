@@ -22,11 +22,10 @@
 				</a>
 			<?php } ?>
 		<?php } else { ?>
-			<p>no albums found</p>
+			<p>No albums found</p>
 		</div>
 	<?php } ?>
 
-	<?php $base_url = BASE_URL . '/albums' ?>
-	<?php require_once __DIR__ . '/../templates/pagination.php' ?>
-
 </section>
+<?php $base_url = BASE_URL . '/album' ?>
+<?php require_once __DIR__ . '/../templates/pagination.php' ?>
