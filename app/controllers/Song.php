@@ -8,7 +8,7 @@ class Song extends Controller
         $this->view('templates/header', $data);
         $this->view('templates/navbar');
         $this->view('templates/layout', [
-            'id' => $id
+            'id' => $id,
         ]);
         $this->view('templates/footer');
     }
