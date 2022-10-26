@@ -18,6 +18,7 @@
 	display: none;
 	animation-name: slideIn;
 	animation-duration: 0.5s;
+	z-index: 2;
 }
 
 .drawer-body {
