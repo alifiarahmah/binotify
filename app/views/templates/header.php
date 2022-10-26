@@ -23,6 +23,7 @@
 
         <?php include 'public/css/views/home.css'; ?>
         <?php include 'public/css/views/song.css'; ?>
+        <?php include 'public/css/views/album.css'; ?>
     </style>
 
     <title><?= $data['title'] ?? "binotify" ?></title>

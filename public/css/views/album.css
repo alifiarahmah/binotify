@@ -1,12 +1,19 @@
-.song-details {
+.album-details {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
 }
 
-.song-info h1 {
+.album-info h1 {
 	margin-top: 0;
 	font-size: 1.5rem;
 	font-weight: bold;
+}
+
+#album-picture {
+	justify-content: center;
+	width: 15rem;
+	height: 15rem;
+	border-radius: 50%;
 }
