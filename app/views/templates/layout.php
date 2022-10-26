@@ -29,7 +29,7 @@
     <div class="content-container">
         <!-- Content -->
         <div class="content">
-            <?= $this->fetch() ?>
+            <?= $this->fetch($data) ?>
         </div>
     </div>
 </div>
