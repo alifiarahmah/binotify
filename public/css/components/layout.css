@@ -1,12 +1,12 @@
 .layout-container {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .content-container {
-    display: flex;
-    flex: 1;
-    align-items: flex-start;
+	display: flex;
+	flex: 1;
+	align-items: flex-start;
 }
 
 .sidebar-container {
@@ -16,6 +16,25 @@
 	width: 10%;
 }
 
+@media screen and (max-width: 768px) {
+	.sidebar-container {
+		background: var(--bg-primary);
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-evenly;
+		position: fixed;
+		bottom: 0;
+	}
+}
+
 .sidebar-item {
 	padding: 2rem 1rem;
+}
+
+.sidebar-item svg {
+	fill: var(--text-primary);
+}
+
+.button-sidebar svg:hover {
+	fill: var(--yellow-hover);
 }
