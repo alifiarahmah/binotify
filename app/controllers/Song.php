@@ -5,12 +5,9 @@ class Song extends Controller
     public function index($id = 1)
     {
         $data['title'] = 'Song';
-        $this->view('templates/header', $data);
-        $this->view('templates/navbar');
         $this->view('templates/layout', [
             'id' => $id,
         ]);
-        $this->view('templates/footer');
     }
 
     public function fetch($data = [])
