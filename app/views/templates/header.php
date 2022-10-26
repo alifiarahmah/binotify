@@ -17,7 +17,7 @@
         <?php include 'public/css/components/drawer.css'; ?>
         <?php include 'public/css/components/input.css'; ?>
         <?php include 'public/css/components/navbar.css'; ?>
-        <?php include 'public/css/components/sidebar.css'; ?>
+        <?php include 'public/css/components/layout.css'; ?>
         <?php include 'public/css/components/pagination.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>

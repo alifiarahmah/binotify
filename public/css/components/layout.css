@@ -1,0 +1,21 @@
+.layout-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+}
+
+.sidebar-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 10%;
+}
+
+.sidebar-item {
+	padding: 2rem 1rem;
+}
