@@ -60,8 +60,13 @@ button:hover {
 /* icon button */
 
 .icon-button {
-    padding: 0;
+    padding: 1em;
     background-color: transparent;
+    fill: var(--bg-primary-white);
+}
+
+.icon-button:hover {
+    fill: var(--red);
 }
 
 .icon-button-outline {
