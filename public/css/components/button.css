@@ -61,10 +61,7 @@ button:hover {
 
 .icon-button {
     padding: 0;
-    border-radius: 10px;
     background-color: transparent;
-    color: var(--yellow);
-    border: 2px solid var(--bg-primary-white);
 }
 
 .icon-button-outline {
@@ -90,5 +87,4 @@ button:hover {
     background-color: var(--bg-primary-white);
     fill: var(--bg-primary-black);
     cursor: pointer;
->>>>>>> public/css/components/button.css
 }
