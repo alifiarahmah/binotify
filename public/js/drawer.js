@@ -1,5 +1,13 @@
-// add event listener to drawer icon
-document.getElementById("drawer-icon").addEventListener("click", () => {
-	console.log("click!");
-	document.getElementById("drawer").style.display = "block";
-});
+function showDrawer() {
+	var drawer = document.getElementById("drawer");
+	if (drawer.style.display === "none"){
+		drawer.style.display = "block";
+	} else {
+		drawer.style.display = "none";
+	}
+}
+
+function closeDrawer() {
+	var drawer = document.getElementById("drawer");
+		drawer.style.display = "none";
+}
