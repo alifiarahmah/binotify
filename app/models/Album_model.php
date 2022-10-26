@@ -43,7 +43,7 @@ class Album_model
 		return $this->db->resultSet();
 	}
 
-	public function searchAlbums($search_query)
+	public function searchAlbum($search_query)
 	{
 		$query_tail = "FROM $this->table WHERE album_title LIKE '%$search_query%' ORDER BY album_title ASC";
 		$this->db->query("SELECT 
