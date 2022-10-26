@@ -37,6 +37,10 @@
 	fill: var(--text-primary);
 }
 
+.button-sidebar {
+    padding: 0;
+}
+
 .button-sidebar svg:hover {
 	fill: var(--yellow-hover);
 }
