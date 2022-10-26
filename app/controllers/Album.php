@@ -24,11 +24,9 @@ class Album extends Controller
 		$this->view('templates/footer');
 	}
 
-	public function search($search_query = "")
+	public function search($search_query = "", $current_page = 1)
 	{
-		// pagination
-
-
+		// $data = $this->model('Album_model')->searchAlbums($search_query);
 
 		$this->view('templates/header', [
 			'title' => 'Search Results'
@@ -36,6 +34,7 @@ class Album extends Controller
 		$this->view('templates/navbar');
 		$this->view('albums/search', [
 			'q' => $search_query,
+			'albums' => $this->model('Album_model')->searchAlbums($search_query)['result']
 		]);
 		$this->view('templates/footer');
 	}
