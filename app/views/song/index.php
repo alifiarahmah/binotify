@@ -1,15 +1,15 @@
 <section id="song">
     <div class="song-details">
         <div class="song-details" id="album-picture">
-            <img src="<?= $data[0]['image_path'] ?>" width="150" height="150">
+            <img src="<?= $data['song']['image_path'] ?>" width="150" height="150">
         </div>
         <div class="song-info">
-            <h1><?= $data[0]['song_title'] ?></h1>
-            <p><?= $data[0]['song_artist'] ?> - <?= $data[0]['release_date'] ?> - <?= $data[0]['duration'] ?> s</p>
+            <h1><?= $data['song']['song_title'] ?></h1>
+            <p><?= $data['song']['song_artist'] ?> - <?= $data['song']['release_date'] ?> - <?= $data['song']['duration'] ?> s</p>
         </div>
     </div>
     <div class="audio-player">
         <audio controls>
-            <source src="<?= $data[0]['audio_path']; ?>" type="audio/mpeg">
+            <source src="<?= $data['song']['audio_path']; ?>" type="audio/mpeg">
     </div>
 </section>

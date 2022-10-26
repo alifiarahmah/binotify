@@ -16,7 +16,9 @@ class Song extends Controller
     public function fetch($data = [])
     {
         $data['content'] = 'song/index';
-        $data['song'] = $this->model('Song_model')->getSongById($data['id']);
-        $this->view($data['content'], $data['song']);
+        $song = $this->model('Song_model')->getSongById($data['id']);
+        $this->view($data['content'], [
+            'song' => $song,
+        ]);
     }
 }
