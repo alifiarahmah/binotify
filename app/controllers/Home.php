@@ -7,9 +7,15 @@ class Home extends Controller
         $data['title'] = 'Listen to all songs';
         $this->view('templates/header', $data);
         $this->view('templates/navbar');
-        $this->view('home/index', [
-            'songs' => $this->model('Song_model')->getNSongs(10)
-        ]);
+        $this->view('templates/layout');
         $this->view('templates/footer');
+    }
+
+    public function fetch()
+    {
+        $this->view('home/index', [
+            'content' => 'home/index',
+            'songs' => $this->model('Song_model')->getAllSongs()
+        ]);
     }
 }
