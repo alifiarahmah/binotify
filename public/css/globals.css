@@ -7,10 +7,12 @@ body {
 
 a {
     color: var(--yellow);
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--yellow-hover);
+    text-decoration: none;
 }
 
 #logo {
@@ -18,4 +20,24 @@ a:hover {
     color: var(--yellow);
     text-decoration: none;
     cursor: pointer;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: block;
+    }
 }
