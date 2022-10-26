@@ -27,13 +27,22 @@ class Song_model
 		return $this->db->resultSet();
 	}
 
+	public function getSongByAlbumId($id)
+	{
+		$this->db->query("SELECT 
+            song_id, song_title, song_artist, release_date, genre, duration, audio_path, image_path, album_id
+            FROM $this->table WHERE album_id=:album_id");
+		$this->db->bind('album_id', $id);
+		return $this->db->resultSet();
+	}
+
 	public function getSongById($id)
 	{
 		$this->db->query("SELECT 
             song_id, song_title, song_artist, release_date, genre, duration, audio_path, image_path, album_id
             FROM $this->table WHERE song_id=:song_id");
 		$this->db->bind('song_id', $id);
-		return $this->db->resultSet();
+		return $this->db->single();
 	}
 
 	public function addSong($data)
