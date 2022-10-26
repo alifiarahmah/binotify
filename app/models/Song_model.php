@@ -105,4 +105,22 @@ class Song_model
 
 		return $this->db->rowCount();
 	}
+
+	public function searchSong($search_query)
+	{
+		$query_tail = "FROM $this->table WHERE song_title LIKE '%$search_query%' ORDER BY song_title ASC";
+		$this->db->query(
+			"SELECT song_id, song_title, song_artist, release_date, genre, image_path " . $query_tail
+		);
+		$search_result = $this->db->resultSet();
+		$this->db->query("SELECT COUNT(*) " . $query_tail);
+		$search_result_count = $this->db->single()['COUNT(*)'];
+		return ['result' => $search_result, 'count' => $search_result_count];
+	}
+
+	public function getAllGenres()
+	{
+		$this->db->query("SELECT DISTINCT genre FROM $this->table WHERE genre IS NOT NULL ORDER BY genre ASC");
+		return $this->db->resultSet();
+	}
 }
