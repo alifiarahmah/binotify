@@ -1,9 +1,15 @@
+var searchIcon = document.getElementById("search-icon");
+var closeSearch = document.getElementById("close-search");
+var search = document.getElementById("search-bar-container");
+
 function showSearch() {
-	var searchIcon = document.getElementById("search-icon");
-	var search = document.getElementById("search-bar-container");
-	if (search.style.display === "none") {
-			search.style.display = "block";
-	} else {
-			search.style.display = "none";
-	}
+	search.style.display = "block";
+	searchIcon.style.display = "none";
+	closeSearch.style.display = "block";
+}
+
+function hideSearch() {
+	search.style.display = "none";
+	searchIcon.style.display = "block";
+	closeSearch.style.display = "none";
 }

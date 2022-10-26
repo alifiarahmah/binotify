@@ -29,6 +29,10 @@
 	display: none;
 }
 
+#close-search {
+	display: none;
+}
+
 .auth {
 	display: none;
 }
