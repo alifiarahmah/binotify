@@ -10,7 +10,7 @@
 			<div class="header-row header-date">date</div>
 			<div class="header-row header-genre">genre</div>
 			<?php foreach ($data['albums'] as $i => $album) { ?>
-				<a class="content-row" href="#">
+				<a class="content-row" href="<?= BASE_URL ?>/album/<?= $album['album_id'] ?>">
 					<div class="album-number"><?= $i + 1 ?></div>
 					<div class="album-picture">
 						<image src="<?= $album['image_path'] ?? "https://binotify.blob.core.windows.net/photo/placeholder.jpg" ?>" width="42px" height="42px">
@@ -27,5 +27,5 @@
 	<?php } ?>
 
 </section>
-<?php $base_url = BASE_URL . '/album' ?>
+<?php $base_url = BASE_URL . '/albums' ?>
 <?php require_once __DIR__ . '/../templates/pagination.php' ?>
