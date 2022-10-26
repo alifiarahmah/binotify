@@ -52,12 +52,14 @@
 	background-color: var(--grey);
 }
 
-.song-number {
+.song-number,
+.album-number {
 	grid-area: id;
 	align-self: left;
 }
 
-.song-picture {
+.song-picture,
+.album-picture {
 	justify-self: left;
 	grid-area: picture;
 	width: 42px;
@@ -65,22 +67,27 @@
 	background-color: var(--gray);
 }
 
-.song-title {
+.song-title,
+.album-title {
 	grid-area: title;
 }
 
-.song-artist {
+.song-artist,
+.album-artist {
 	grid-area: artist;
 }
 
-.song-date {
+.song-date,
+.album-date {
 	grid-area: date;
 }
 
-.song-date::before {
-	margin: 0 0.5rem;
+.song-date::before,
+.album-date::before {
+	margin: 0 0.1rem;
 }
 
-.song-genre {
+.song-genre,
+.album-genre {
 	grid-area: genre;
 }
