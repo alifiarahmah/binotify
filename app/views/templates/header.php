@@ -21,7 +21,7 @@
         <?php include 'public/css/components/pagination.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>
-        <?php include 'public/css/views/songdetails.css'; ?>
+        <?php include 'public/css/views/song.css'; ?>
     </style>
 
     <title><?= $data['title'] ?? "binotify" ?></title>

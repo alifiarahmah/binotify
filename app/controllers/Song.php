@@ -1,6 +1,6 @@
 <?php
 
-class Songdetails extends Controller
+class Song extends Controller
 {
     public function index()
     {
