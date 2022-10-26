@@ -21,13 +21,17 @@
 }
 
 .search-bar {
-	display: none;
+	display: flex;
 	align-items: center;
 	padding-left: 1em;
 }
 
 .search-bar-container {
-	display: flex;
+	display: none;
+}
+
+.search-bar-container>input {
+	display: none;
 }
 
 .auth {
@@ -49,10 +53,8 @@
 		display: none;
 	}
 
-	.search-bar {
+	.search-bar-container {
 		display: flex;
-		align-items: center;
-		padding-left: 1em;
 	}
 
 	.auth {
