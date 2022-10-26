@@ -2,7 +2,7 @@
 
 class Album extends Controller
 {
-    public function index($id = 1)
+    public function index($id = 0)
     {
         $data['title'] = 'Album';
         $this->view('templates/layout', [
