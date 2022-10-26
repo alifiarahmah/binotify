@@ -2,7 +2,7 @@
 
 class Song extends Controller
 {
-    public function index($id = 1)
+    public function index($id = 0)
     {
         $data['title'] = 'Song';
         $this->view('templates/layout', [
