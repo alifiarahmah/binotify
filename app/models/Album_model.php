@@ -35,7 +35,7 @@ class Album_model
 		return $this->db->single()['COUNT(*)'];
 	}
 
-	public function getAlbums($first_item, $item_per_page)
+	public function getNAlbums($first_item, $item_per_page)
 	{
 		$this->db->query("SELECT 
 						album_id, album_title, album_artist, total_duration, image_path, tanggal_terbit, genre
