@@ -24,8 +24,8 @@ class Album_model
 		$this->db->query("SELECT 
 			album_id, album_title, album_artist, total_duration, image_path, tanggal_terbit, genre 
 			FROM $this->table 
-			WHERE id=:id");
-		$this->db->bind('id', $id);
+			WHERE album_id=:album_id");
+		$this->db->bind('album_id', $id);
 		return $this->db->single();
 	}
 
