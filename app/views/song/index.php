@@ -8,7 +8,7 @@
                 <h1><?= $data['song']['song_title'] ?></h1>
                 <p><?= $data['song']['song_artist'] ?> - <?= $data['song']['release_date'] ?> - <?= $data['song']['duration'] ?> s</p>
                 <?php if (!is_null($data['song']['album_id'])) { ?>
-                    <p><a href="<?= BASE_URL ?>/album/<?= $data['song']['album_id'] ?>">View album</a></p>
+                    <p><a href="<?= BASE_URL ?>/album/detail/<?= $data['song']['album_id'] ?>">View album</a></p>
                 <?php } ?>
             </div>
         </div>
