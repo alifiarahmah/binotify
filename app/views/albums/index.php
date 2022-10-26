@@ -1,14 +1,14 @@
 <section id="albums">
 	<h1>All Albums</h1>
 
-	<div class="song-item-container">
-		<div class="header-row"></div>
-		<div class="header-row"></div>
-		<div class="header-row header-title">album title</div>
-		<div class="header-row header-artist">artist</div>
-		<div class="header-row header-date">date</div>
-		<div class="header-row header-genre">genre</div>
-		<?php if (count($data) > 0) { ?>
+	<?php if (count($data['albums']) > 0) { ?>
+		<div class="song-item-container">
+			<div class="header-row"></div>
+			<div class="header-row"></div>
+			<div class="header-row header-title">album title</div>
+			<div class="header-row header-artist">artist</div>
+			<div class="header-row header-date">date</div>
+			<div class="header-row header-genre">genre</div>
 			<?php foreach ($data['albums'] as $i => $album) { ?>
 				<a class="content-row" href="#">
 					<div class="album-number"><?= $i + 1 ?></div>
@@ -23,8 +23,8 @@
 			<?php } ?>
 		<?php } else { ?>
 			<p>no albums found</p>
-		<?php } ?>
-	</div>
+		</div>
+	<?php } ?>
 
 	<?php $base_url = BASE_URL . '/albums' ?>
 	<?php require_once __DIR__ . '/../templates/pagination.php' ?>

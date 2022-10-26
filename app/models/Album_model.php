@@ -43,6 +43,17 @@ class Album_model
 		return $this->db->resultSet();
 	}
 
+	public function searchAlbums($search_query)
+	{
+		$query_tail = "FROM $this->table WHERE album_title LIKE '%$search_query%' ORDER BY album_title ASC";
+		$this->db->query("SELECT 
+						album_id, album_title, album_artist, total_duration, image_path, tanggal_terbit, genre " . $query_tail);
+		$search_result = $this->db->resultSet();
+		$this->db->query("SELECT COUNT(*) " . $query_tail);
+		$search_result_count = $this->db->single()['COUNT(*)'];
+		return ['result' => $search_result, 'count' => $search_result_count];
+	}
+
 	public function addAlbum($data)
 	{
 		$query = "INSERT INTO $this->table
