@@ -15,7 +15,7 @@
         <div class="header-row header-artist">artist</div>
         <div class="header-row header-date">date</div>
         <div class="header-row header-genre">genre</div>
-        <?php if (count($data) > 0) { ?>
+        <?php if (count($data['songs']) > 0) { ?>
             <?php foreach ($data['songs'] as $i => $song) { ?>
                 <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
                     <div class="song-number"><?= $i + 1 ?></div>
