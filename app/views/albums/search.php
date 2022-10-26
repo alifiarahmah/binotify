@@ -3,6 +3,20 @@
 		<h1>Searching for "<?= $data['q']; ?>"</h1>
 
 		<?php if (count($data['albums']) > 0) { ?>
+			<div class="search-option-container">
+				<select name="sort" id="sort" form="carform" label="Sort by">
+					<option value="">Sort by</option>
+					<option value="title_asc">Title (A-Z)</option>
+					<option value="title_desc">Title (Z-A)</option>
+					<option value="date_desc">Release Date (Newest First)</option>
+					<option value="date_asc">Release Date (Oldest First)</option>
+				</select>
+				<select name="sort" id="sort" form="carform" label="Sort by">
+					<option value="">Filter Genre:</option>
+					<!-- TODO: loop -->
+					<option value="title_asc">Title (A-Z)</option>
+				</select>
+			</div>
 			<div class="song-item-container">
 				<div class="header-row"></div>
 				<div class="header-row"></div>
