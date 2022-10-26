@@ -22,6 +22,7 @@
         <?php include 'public/css/components/login.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>
+        <?php include 'public/css/views/search.css'; ?>
         <?php include 'public/css/views/song.css'; ?>
         <?php include 'public/css/views/album.css'; ?>
     </style>

@@ -41,3 +41,13 @@ a:hover {
         display: block;
     }
 }
+
+section {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    section {
+        width: 90%;
+    }
+}
