@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="sidebar-item">
-            <a href="<?= BASE_URL ?>/song">
+            <a href="<?= BASE_URL ?>">
                 <button class="button-sidebar">
                     <svg width="24" height="36" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 0V21.1C10.82 20.42 9.46 20 8 20C3.58 20 0 23.58 0 28C0 32.42 3.58 36 8 36C12.42 36 16 32.42 16 28V8H24V0H12Z" />
