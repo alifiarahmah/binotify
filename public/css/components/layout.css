@@ -4,17 +4,10 @@
 }
 
 .content-container {
-<<<<<<< HEAD
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	align-items: flex-start;
-=======
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-start;
->>>>>>> b63c230 (fix(songs): fix song details display)
 }
 
 .sidebar-container {
