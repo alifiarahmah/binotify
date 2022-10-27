@@ -1,5 +1,5 @@
 .song-item-container {
-	--templating: 50px 50px 2fr 2fr 1fr 1fr;
+	--templating: 50px 2fr 2fr 1fr 1fr;
 
 	color: var(--text-primary);
 	text-decoration: none;
@@ -34,11 +34,11 @@
 .content-row {
 	align-items: center;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr) repeat(2, 2fr);
+	grid-template-columns: 1fr 1fr 2fr;
 	grid-template-areas:
-		"id picture title title"
-		"id picture artist genre"
-		"id picture date genre"
+		"picture title title"
+		"picture artist artist"
+		"picture date genre"
 	;
 	padding: 0.5rem 0;
 	text-decoration: none;
@@ -52,7 +52,7 @@
 		display: grid;
 		grid-template-columns: var(--templating);
 		grid-template-areas:
-			"id picture title artist date genre";
+			"picture title artist date genre";
 	}
 }
 
@@ -68,7 +68,7 @@
 
 .song-picture,
 .album-picture {
-	justify-self: left;
+	justify-self: center;
 	grid-area: picture;
 	width: 42px;
 	height: 42px;

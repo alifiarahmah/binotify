@@ -1,10 +1,9 @@
 <section id="home">
     <h1>
-        Listen to curated songs
+        Listen now
     </h1>
 
     <div class="song-item-container">
-        <div class="header-row"></div>
         <div class="header-row"></div>
         <div class="header-row header-title">song title</div>
         <div class="header-row header-artist">artist</div>
@@ -13,7 +12,6 @@
         <?php if (count($data) > 0) { ?>
             <?php foreach ($data['songs'] as $i => $song) { ?>
                 <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
-                    <div class="song-number"><?= $i + 1 ?></div>
                     <div class="song-picture">
                         <image src="<?= $song['image_path'] ?? "https://binotify.blob.core.windows.net/photo/placeholder.jpg" ?>" width="42px" height="42px">
                     </div>

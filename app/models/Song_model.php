@@ -27,6 +27,12 @@ class Song_model
 		return $this->db->resultSet();
 	}
 
+	public function getAllSongGenres()
+	{
+		$this->db->query("SELECT DISTINCT genre FROM $this->table WHERE genre IS NOT NULL ORDER BY genre ASC");
+		return $this->db->resultSet();
+	}
+
 	public function getSongByAlbumId($id)
 	{
 		$this->db->query("SELECT 
@@ -106,6 +112,22 @@ class Song_model
 		return $this->db->rowCount();
 	}
 
+	// HOME
+	public function get10LatestSongs()
+	{
+		$this->db->query(
+			"SELECT * FROM (
+				SELECT song_id, song_title, song_artist, release_date, genre, duration, audio_path, image_path, album_id
+				FROM $this->table
+				ORDER BY song_id 
+				DESC LIMIT 10
+			) ten_song ORDER BY song_title ASC;"
+		);
+		return $this->db->resultSet();
+	}
+
+	// SEARCH
+
 	public function searchSong($search_query)
 	{
 		$query_tail = "FROM $this->table WHERE song_title LIKE '%$search_query%' ORDER BY song_title ASC";
@@ -116,11 +138,5 @@ class Song_model
 		$this->db->query("SELECT COUNT(*) " . $query_tail);
 		$search_result_count = $this->db->single()['COUNT(*)'];
 		return ['result' => $search_result, 'count' => $search_result_count];
-	}
-
-	public function getAllGenres()
-	{
-		$this->db->query("SELECT DISTINCT genre FROM $this->table WHERE genre IS NOT NULL ORDER BY genre ASC");
-		return $this->db->resultSet();
 	}
 }

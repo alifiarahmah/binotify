@@ -3,6 +3,7 @@ body {
     color: var(--text-primary);
     font-family: "Poppins", sans-serif;
     font-weight: normal;
+    margin: 0;
 }
 
 a {
@@ -54,9 +55,10 @@ section {
 
 ::-webkit-scrollbar {
     background-color: transparent;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--text-disabled);
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
