@@ -6,7 +6,7 @@ class Album extends Controller
 	{
 		$data['title'] = 'All Albums';
 		$this->view('templates/layout', [
-			'detail' => false,
+			'mode' => 'all',
 			'current_page' => $current_page
 		]);
 	}
@@ -15,14 +15,54 @@ class Album extends Controller
 	{
 		$data['title'] = 'Album';
 		$this->view('templates/layout', [
-			'detail' => true,
+			'mode' => 'detail',
 			'id' => $id,
 		]);
 	}
 
+	public function add()
+	{
+		$this->view('templates/layout', [
+			'mode' => 'add',
+		]);
+	}
+
+	public function delete($id = 0)
+	{
+		$this->model('Album_model')->deleteAlbum($id);
+		header('Location: ' . BASE_URL . '/album');
+	}
+
+	public function submit()
+	{
+		if ($_FILES['album-image']) {
+			$album_image = $_FILES['album-image'];
+			$album_image_path = $this->store_image($album_image);
+			$_POST['image-path'] = $album_image_path;
+		}
+
+		if ($this->model('Album_model')->addAlbum($_POST) > 0) {
+			header('Location: ' . BASE_URL . '/album/add');
+			exit;
+		}
+	}
+
+	public function store_image($image)
+	{
+		$image_name = $image['name'];
+		$image_tmp_name = $image['tmp_name'];
+		$image_error = $image['error'];
+
+		if ($image_error === 0) {
+			$image_destination = 'public/assets/image/' . $image_name;
+			move_uploaded_file($image_tmp_name, $image_destination);
+			return $image_destination;
+		}
+	}
+
 	public function fetch($data = [])
 	{
-		if ($data['detail']) {
+		if ($data['mode'] == 'detail') {
 			$data['content'] = 'album/detail';
 			$album = $this->model('Album_model')->getAlbumById($data['id']);
 			$songs = $this->model('Song_model')->getSongByAlbumId($data['id']);
@@ -30,7 +70,7 @@ class Album extends Controller
 				'album' => $album,
 				'songs' => $songs
 			]);
-		} else {
+		} else if ($data['mode'] == 'all') {
 			$current_page = $data['current_page'];
 
 			// pagination
@@ -46,6 +86,9 @@ class Album extends Controller
 				'current_page' => $current_page,
 				'total_page' => $total_page
 			]);
+		} else if ($data['mode'] == 'add') {
+			$data['content'] = 'album/add';
+			$this->view($data['content']);
 		}
 	}
 }
