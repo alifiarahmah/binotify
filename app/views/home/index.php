@@ -1,6 +1,6 @@
 <section id="home">
     <h1>
-        Listen to curated songs
+        Listen now
     </h1>
 
     <div class="song-item-container">

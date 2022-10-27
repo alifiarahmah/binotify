@@ -10,9 +10,10 @@ class Home extends Controller
 
     public function fetch()
     {
+        // get 10 latest songs from database
         $this->view('home/index', [
             'content' => 'home/index',
-            'songs' => $this->model('Song_model')->getAllSongs()
+            'songs' => $this->model('Song_model')->get10LatestSongs()
         ]);
     }
 }
