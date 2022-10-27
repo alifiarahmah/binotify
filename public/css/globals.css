@@ -54,9 +54,10 @@ section {
 
 ::-webkit-scrollbar {
     background-color: transparent;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--text-disabled);
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
