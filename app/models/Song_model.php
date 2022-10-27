@@ -124,15 +124,98 @@ class Song_model
 
 	// SEARCH
 
-	public function searchSong($search_query)
+	public function searchSong($raw_keyword, $raw_sort, $raw_filter)
 	{
-		$query_tail = "FROM $this->table WHERE song_title LIKE '%$search_query%' ORDER BY song_title ASC";
-		$this->db->query(
-			"SELECT song_id, song_title, song_artist, release_date, genre, image_path " . $query_tail
-		);
+		// sanitize
+		$keyword = htmlspecialchars($raw_keyword);
+		$sort = htmlspecialchars($raw_sort);
+		$filter = htmlspecialchars($raw_filter);
+
+		$query_head = "SELECT 
+			song_id, song_title, song_artist, release_date, genre, image_path ";
+		$query = "FROM $this->table 
+			WHERE song_title LIKE '%$keyword%'";
+
+		// filter
+		if (isset($filter)) {
+			if ($filter == "NULL") {
+				$query .= " AND genre IS NULL";
+			} else if ($filter != "all") {
+				$query .= " AND genre = '$filter'";
+			}
+		}
+
+		// sort
+		if (isset($sort)) {
+			switch ($sort) {
+				case 'title-asc':
+					$query .= " ORDER BY song_title ASC";
+					break;
+				case 'title-desc':
+					$query .= " ORDER BY song_title DESC";
+					break;
+				case 'date-asc':
+					$query .= " ORDER BY release_date ASC";
+					break;
+				case 'date-desc':
+					$query .= " ORDER BY release_date DESC";
+					break;
+			}
+		}
+
+		$this->db->query($query_head . $query);
 		$search_result = $this->db->resultSet();
-		$this->db->query("SELECT COUNT(*) " . $query_tail);
+		$this->db->query("SELECT COUNT(*) " . $query);
 		$search_result_count = $this->db->single()['COUNT(*)'];
 		return ['result' => $search_result, 'count' => $search_result_count];
+	}
+	// paginate search result
+	public function getNSearchSongs($raw_keyword, $raw_sort, $raw_filter, $raw_page = 1)
+	{
+		// sanitize
+		$keyword = htmlspecialchars($raw_keyword);
+		$sort = htmlspecialchars($raw_sort);
+		$filter = htmlspecialchars($raw_filter);
+		$page = htmlspecialchars($raw_page);
+
+		$query_head = "SELECT 
+			song_id, song_title, song_artist, release_date, genre, image_path ";
+		$query = "FROM $this->table 
+			WHERE song_title LIKE '%$keyword%'";
+
+		// filter
+		if (isset($filter)) {
+			if ($filter == "NULL") {
+				$query .= " AND genre IS NULL";
+			} else if ($filter != "all") {
+				$query .= " AND genre = '$filter'";
+			}
+		}
+
+		// sort
+		if (isset($sort)) {
+			switch ($sort) {
+				case 'title-asc':
+					$query .= " ORDER BY song_title ASC";
+					break;
+				case 'title-desc':
+					$query .= " ORDER BY song_title DESC";
+					break;
+				case 'date-asc':
+					$query .= " ORDER BY release_date ASC";
+					break;
+				case 'date-desc':
+					$query .= " ORDER BY release_date DESC";
+					break;
+			}
+		}
+
+		// pagination
+		$limit = 5;
+		$offset = ($page - 1) * $limit;
+		$query .= " LIMIT $limit OFFSET $offset";
+
+		$this->db->query($query_head . $query);
+		return $this->db->resultSet();
 	}
 }
