@@ -26,6 +26,84 @@ class User_model
         return $this->db->single();
     }
 
+    public function getUserByEmail($email)
+    {
+        $this->db->query("SELECT * FROM $this->table WHERE email=:email");
+        $this->db->bind('email', $email);
+        return $this->db->single();
+    }
+
+    public function getUserByEmailPassword($email, $password) {
+        $this->db->query("SELECT * FROM $this->table WHERE email=:email AND password=:password");
+        $this->db->bind('email', $email);
+        $this->db->bind('password', $password);
+        return $this->db->single();
+    }
+
+    public function getUserByUsername($username)
+    {
+        $this->db->query("SELECT * FROM $this->table WHERE username=:username");
+        $this->db->bind('username', $username);
+        return $this->db->single();
+    }
+
+    public function getUserByUsernamePassword($username, $password) {
+        $this->db->query("SELECT * FROM $this->table WHERE username=:username AND password=:password");
+        $this->db->bind('username', $username);
+        $this->db->bind('password', $password);
+        return $this->db->single();
+    }
+
+    public function validateUser() {
+        include_once __DIR__ . '/../config/config.php';
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email_exists = $this->getUserByEmail($username);
+        $username_exists = $this->getUserByUsername($username);
+        if (!$email_exists && !$username_exists) {
+            $_SESSION['error'] = 'Username tidak ada. Silakan daftar terlebih dahulu.';
+            header('Location: ' . BASE_URL . '/login');
+            exit;
+        }
+        $email_valid = $this->getUserByEmailPassword($username, $password);
+        $username_valid = $this->getUserByUsernamePassword($username, $password);
+        if (!$email_valid && !$username_valid) {
+            $_SESSION['error'] = 'Password salah';
+            header('Location: ' . BASE_URL . '/login');
+            exit;
+        }
+        else {
+            if ($email_valid) {
+                $_SESSION['user_id'] = $email_valid['user_id'];
+                $_SESSION['email'] = $email_valid['email'];
+                $_SESSION['username'] = $email_valid['username'];
+                $_SESSION['isAdmin'] = $email_valid['isAdmin'];
+                if ($email_valid['isAdmin']) {
+                    header('Location: ' . BASE_URL . '/admin');
+                    exit;
+                }
+                else {
+                    header('Location: ' . BASE_URL . '/');
+                    exit;
+                }
+            }
+            else {
+                $_SESSION['user_id'] = $username_valid['user_id'];
+                $_SESSION['email'] = $username_valid['email'];
+                $_SESSION['username'] = $username_valid['username'];
+                $_SESSION['isAdmin'] = $username_valid['isAdmin'];
+                if ($username_valid['isAdmin']) {
+                    header('Location: ' . BASE_URL . '/admin');
+                    exit;
+                }
+                else {
+                    header('Location: ' . BASE_URL . '/');
+                    exit;
+                }
+            }
+        }
+    }
+
     public function addUser($data)
     {
         $query = "INSERT INTO $this->table
