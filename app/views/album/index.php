@@ -11,7 +11,7 @@
 			<?php foreach ($data['albums'] as $i => $album) { ?>
 				<a class="content-row" href="<?= BASE_URL ?>/album/detail/<?= $album['album_id'] ?>">
 					<div class="album-picture">
-						<image src="<?= $album['image_path'] ?? "https://binotify.blob.core.windows.net/photo/placeholder.jpg" ?>" width="42px" height="42px">
+						<image src="../<?= $album['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
 					</div>
 					<div class="album-title"><?= $album['album_title']; ?></div>
 					<div class="album-artist"><?= $album['album_artist']; ?></div>

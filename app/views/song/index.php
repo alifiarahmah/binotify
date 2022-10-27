@@ -2,7 +2,7 @@
     <?php if ($data['song']) { ?>
         <div class="song-details">
             <div class="song-details" id="album-picture">
-                <img src="../<?=$data['song']['image_path']?>" width="150" height="150">
+                <img src="../<?=$data['song']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
             </div>
             <div class="song-info">
                 <h1><?= $data['song']['song_title'] ?></h1>

@@ -2,7 +2,7 @@
     <?php if ($data['album']) { ?>
         <div class="album-details">
             <div class="album-details" id="album-picture">
-                <img src="<?= $data['album']['image_path'] ?>" width="150" height="150">
+                <img src="../../<?= $data['album']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
             </div>
             <div class="album-info">
                 <h1><?= $data['album']['album_title'] ?></h1>
@@ -21,7 +21,7 @@
                     <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
                         <div class="song-number"><?= $i + 1 ?></div>
                         <div class="song-picture">
-                            <image src="<?= $song['image_path'] ?? "https://binotify.blob.core.windows.net/photo/placeholder.jpg" ?>" width="42px" height="42px">
+                            <image src="../../<?= $song['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
                         </div>
                         <div class="song-title"><?= $song['song_title']; ?></div>
                         <div class="song-artist"><?= $song['song_artist']; ?></div>
