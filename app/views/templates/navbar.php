@@ -22,8 +22,12 @@
 	<div class="navbar-group">
 		<!-- TODO: bedain auth nggak -->
 		<div class="auth">
-			<button>log in</button>
-			<button class="button-solid">sign up</button>
+			<a href="<?= BASE_URL ?>/login">
+				<button class="button-outline">log in</button>
+			</a>
+			<a href="<?= BASE_URL ?>/register">
+				<button class="button-solid">sign up</button>
+			</a>
 			<!-- <button class="button-solid">log out</button> -->
 		</div>
 		<button id="close-search" onClick="hideSearch()">
@@ -48,7 +52,11 @@
 
 	<div class="drawer-body">
 		<h1 id="logo">binotify</h1>
-		<button class="button-outline">Login</button>
-		<button class="button-solid">Sign Up</button>
+		<a href="<?= BASE_URL ?>/login">
+			<button class="button-outline">Login</button>
+		</a>
+		<a href="<?= BASE_URL ?>/register">
+			<button class="button-solid">Sign Up</button>
+		</a>
 	</div>
 </div>

@@ -51,3 +51,12 @@ section {
         width: 90%;
     }
 }
+
+::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-disabled);
+    border-radius: 0.5rem;
+}

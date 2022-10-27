@@ -34,7 +34,9 @@
         </div>
     </div>
     <div class="content-container">
-        <?= $this->fetch($data) ?>
+        <div class="content">
+            <?= $this->fetch($data) ?>
+        </div>
     </div>
 </div>
 
