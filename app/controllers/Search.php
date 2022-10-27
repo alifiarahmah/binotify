@@ -23,7 +23,7 @@ class Search extends Controller
 			'search' => $keyword, // TODO: find a way to use $_GET instead of $_POST
 			'albums' => $this->model('Album_model')->searchAlbum($keyword),
 			'songs' => $this->model('Song_model')->searchSong($keyword),
-			'genres' => $this->model('Song_model')->getAllGenres(),
+			'genres' => $this->model('Song_model')->getAllSongGenres(),
 		]);
 	}
 }
