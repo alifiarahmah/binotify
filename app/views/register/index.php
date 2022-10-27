@@ -1,10 +1,10 @@
 <div class="login-container">
     <h1 class="login-title">Selamat datang di Binotify! Silakan isi data berikut untuk mendaftar.</h1>
-    <form action="" method="post" class="login-form">
-    <input class="login-input" type="email" name="email" placeholder="Email" />
+    <form action="register/validate" method="post" class="login-form">
+        <input class="login-input" type="email" name="email" placeholder="Email" />
         <input class="login-input" type="text" name="username" placeholder="Username" />
         <input class="login-input" type="password" name="password" placeholder="Password" />
-        <input class="login-input" type="password" name="password" placeholder="Confirm password" />
+        <input class="login-input" type="password" name="confirm" placeholder="Confirm password" />
         <input type="submit" value="Register" />
     </form>
     <p>

@@ -58,7 +58,7 @@ class User_model
         include_once __DIR__ . '/../config/config.php';
         $username = $_POST['username'];
         $password = $_POST['password'];
-        if ($username == '' || $password == '') {
+        if ($username === '' || $password === '') {
             $_SESSION['error'] = 'Silakan isi terlebih dahulu.';
             header('Location: ' . BASE_URL . '/login');
         }
@@ -110,6 +110,42 @@ class User_model
         }
     }
 
+    public function validateRegister() {
+        include_once __DIR__ . '/../config/config.php';
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirm = $_POST['confirm'];
+        if ($username === '' || $password === '' || $confirm === '' || $email === '') {
+            $_SESSION['error'] = 'Silakan isi terlebih dahulu.';
+            header('Location: ' . BASE_URL . '/register');
+        }
+        else if ($password !== $confirm) {
+            $_SESSION['error'] = 'Password tidak cocok. Silakan ulangi lagi.';
+            header('Location: ' . BASE_URL . '/register');
+        }
+        else {
+            $email_exists = $this->getUserByEmail($username);
+            $username_exists = $this->getUserByUsername($username);
+            if ($email_exists && $username_exists) {
+                $_SESSION['error'] = 'Username atau email sudah terdaftar sebelumnya.';
+                header('Location: ' . BASE_URL . '/register');
+                exit;
+            }
+            else {
+                $data = [];
+                $data['email'] = $email;
+                $data['username'] = $username;
+                $data['password'] = $password;
+
+                $this->addUser($data);
+                $_SESSION['success'] = 'Berhasil mendaftar. Silakan login.';
+                header('Location: ' . BASE_URL . '/login');
+                exit;
+            }
+        }
+    }
+
     public function logout()
     {
         session_destroy();
@@ -119,7 +155,7 @@ class User_model
 
     public function addUser($data)
     {
-        $query = "INSERT INTO $this->table
+        $query = "INSERT INTO $this->table (email, password, username)
 										VALUES
 									(:email, :password, :username)";
 
