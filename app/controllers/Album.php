@@ -27,22 +27,50 @@ class Album extends Controller
 		]);
 	}
 
+	public function edit($id = 0)
+	{
+		$this->view('templates/layout', [
+			'mode' => 'edit',
+			'id' => $id,
+		]);
+	}
+
 	public function delete($id = 0)
 	{
 		$this->model('Album_model')->deleteAlbum($id);
-		header('Location: ' . BASE_URL . '/album');
+		header('Location: ' . BASE_URL . '/album/1');
 	}
 
 	public function submit()
 	{
-		if ($_FILES['album-image']) {
+		if ($_FILES['album-image']['error'] == 0) {
 			$album_image = $_FILES['album-image'];
 			$album_image_path = $this->store_image($album_image);
 			$_POST['image-path'] = $album_image_path;
 		}
 
 		if ($this->model('Album_model')->addAlbum($_POST) > 0) {
-			header('Location: ' . BASE_URL . '/album/add');
+			header('Location: ' . BASE_URL . '/album/1');
+			exit;
+		}
+	}
+
+	public function save($id)
+	{
+		if ($_FILES['album-image']['error'] == 0) {
+			$album_image = $_FILES['album-image'];
+			$album_image_path = $this->store_image($album_image);
+			$_POST['image-path'] = $album_image_path;
+		} else {
+			$_POST['image-path'] = $this->model('Album_model')->getAlbumById($id)['image_path'];
+		}
+
+		$_POST['album-id'] = $id;
+		$_POST['tanggal-terbit'] = $this->model('Album_model')->getAlbumById($id)['tanggal_terbit'];
+		$_POST['total-duration'] = $this->model('Album_model')->getAlbumById($id)['total_duration'];
+
+		if ($this->model('Album_model')->updateAlbum($_POST, $id) > 0) {
+			header('Location: ' . BASE_URL . '/album/detail/' . $id);
 			exit;
 		}
 	}
@@ -89,6 +117,12 @@ class Album extends Controller
 		} else if ($data['mode'] == 'add') {
 			$data['content'] = 'album/add';
 			$this->view($data['content']);
+		} else if ($data['mode'] == 'edit') {
+			$data['content'] = 'album/edit';
+			$album = $this->model('Album_model')->getAlbumById($data['id']);
+			$this->view($data['content'], [
+				'album' => $album
+			]);
 		}
 	}
 }
