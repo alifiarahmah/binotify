@@ -18,7 +18,6 @@
                 <div class="header-row header-genre">genre</div>
                 <?php foreach ($data['songs'] as $i => $song) { ?>
                     <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
-                        <div class="song-number"><?= $i + 1 ?></div>
                         <div class="song-picture">
                             <image src="../../<?= $song['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
                         </div>
