@@ -5,7 +5,7 @@ class Song extends Controller
     public function index($id = 0)
     {
         $this->view('templates/layout', [
-            'add' => false,
+            'mode' => 'index',
             'id' => $id,
         ]);
     }
@@ -13,7 +13,15 @@ class Song extends Controller
     public function add()
     {
         $this->view('templates/layout', [
-            'add' => true,
+            'mode' => 'add',
+        ]);
+    }
+
+    public function edit($id = 0)
+    {
+        $this->view('templates/layout', [
+            'mode' => 'edit',
+            'id' => $id,
         ]);
     }
 
@@ -25,17 +33,38 @@ class Song extends Controller
 
     public function submit()
     {
-        if ($_FILES['song-image'] && $_FILES['song-file']) {
-            $song_image = $_FILES['song-image'];
+        if ($_FILES['song-file']['error'] == 0) {
             $song_audio = $_FILES['song-file'];
-            $song_image_path = $this->store_image($song_image);
             $song_audio_path = $this->store_audio($song_audio);
-            $_POST['image-path'] = $song_image_path;
             $_POST['audio-path'] = $song_audio_path;
+        } else {
+            $_POST['audio-path'] = 'default.mp3';
         }
 
+        $song_image = $_FILES['song-image'];
+        $song_image_path = $this->store_image($song_image);
+        $_POST['image-path'] = $song_image_path;
+
         if ($this->model('Song_model')->addSong($_POST) > 0) {
-            header('Location: ' . BASE_URL . 'song/add');
+            header('Location: ' . BASE_URL);
+            exit;
+        }
+    }
+
+    public function save($id)
+    {
+        if ($_FILES['song-image']['error'] == 0) {
+            $song_image = $_FILES['song-image'];
+            $song_image_path = $this->store_image($song_image);
+            $_POST['image-path'] = $song_image_path;
+        } else {
+            $_POST['image-path'] = $this->model('Song_model')->getSongById($id)['image_path'];
+        }
+
+        $_POST['song-id'] = $id;
+
+        if ($this->model('Song_model')->updateSong($_POST) > 0) {
+            header('Location: ' . BASE_URL);
             exit;
         }
     }
@@ -68,17 +97,25 @@ class Song extends Controller
 
     public function fetch($data = [])
     {
-        if ($data['add']) {
+        if ($data['mode'] == 'add') {
             $data['content'] = 'song/add';
             $albums = $this->model('Album_model')->getAllAlbums();
             $this->view($data['content'], [
                 'albums' => $albums,
             ]);
-        } else {
+        } else if ($data['mode'] == 'index') {
             $data['content'] = 'song/index';
             $song = $this->model('Song_model')->getSongById($data['id']);
             $this->view($data['content'], [
                 'song' => $song,
+            ]);
+        } else if ($data['mode'] == 'edit') {
+            $data['content'] = 'song/edit';
+            $song = $this->model('Song_model')->getSongById($data['id']);
+            $albums = $this->model('Album_model')->getAllAlbums();
+            $this->view($data['content'], [
+                'song' => $song,
+                'albums' => $albums,
             ]);
         }
     }

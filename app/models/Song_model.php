@@ -90,8 +90,6 @@ class Song_model
 										song_artist = :song_artist,
 										release_date = :release_date,
 										genre = :genre,
-										duration = :duration,
-										audio_path = :audio_path,
 										image_path = :image_path,
 										album_id = :album_id
 										WHERE song_id = :song_id";
@@ -101,10 +99,8 @@ class Song_model
 		$this->db->bind('song_artist', $data['song-artist']);
 		$this->db->bind('release_date', $data['release-date']);
 		$this->db->bind('genre', $data['genre']);
-		$this->db->bind('duration', $data['duration']);
-		$this->db->bind('audio_path', $data['audio-path']);
 		$this->db->bind('image_path', $data['image-path']);
-		$this->db->bind('album_id', $data['album-id']);
+		$this->db->bind('album_id', $data['song-album']);
 		$this->db->bind('song_id', $data['song-id']);
 
 		$this->db->execute();
