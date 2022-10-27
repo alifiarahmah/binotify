@@ -1,5 +1,5 @@
 <h1>Add Song</h1>
-<form action="<?= BASE_URL ?>/add/song" method="POST" enctype="multipart/form-data">
+<form action="<?= BASE_URL ?>/add/submit_song" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="song-title">Title</label>
         <input type="text" name="song-title" id="song-title" class="form-control" placeholder="Song Title" required>
@@ -10,15 +10,15 @@
     </div>
     <div class="form-group">
         <label for="song-release-date">Release Date</label>
-        <input type="date" name="song-release-date" id="song-release-date" class="form-control" placeholder="Song Release Date" required>
+        <input type="date" name="release-date" id="song-release-date" class="form-control" placeholder="Song Release Date" required>
     </div>
     <div class="form-group">
         <label for="song-genre">Genre</label>
-        <input type="text" name="song-genre" id="song-genre" class="form-control" placeholder="Song Genre" required>
+        <input type="text" name="genre" id="song-genre" class="form-control" placeholder="Song Genre" required>
     </div>
     <div class="form-group">
         <label for="song-duration">Duration</label>
-        <input type="number" name="song-duration" id="song-duration" class="form-control" placeholder="Song Duration" required>
+        <input type="number" name="duration" id="song-duration" class="form-control" placeholder="Song Duration" required>
     </div>
     <div class="form-group">
         <label for="song-album">Album</label>
@@ -34,7 +34,7 @@
         <input type="file" name="song-image" id="song-image" class="form-control" required>
     </div>
     <div class="form-group">
-        <label for="song-file">File</label>
+        <label for="song-file">Audio</label>
         <input type="file" name="song-file" id="song-file" class="form-control" required>
     </div>
     <div class="form-group">

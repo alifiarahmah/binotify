@@ -1,5 +1,5 @@
 <h1>Add Album</h1>
-<form action="<?= BASE_URL ?>/add/album" method="POST" enctype="multipart/form-data">
+<form action="<?= BASE_URL ?>/add/submit_album" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="album-title">Title</label>
         <input type="text" name="album-title" id="album-title" class="form-control" placeholder="Album Title" required>
@@ -10,11 +10,11 @@
     </div>
     <div class="form-group">
         <label for="album-release-date">Release Date</label>
-        <input type="date" name="album-release-date" id="album-release-date" class="form-control" placeholder="Album Release Date" required>
+        <input type="date" name="tanggal-terbit" id="album-release-date" class="form-control" placeholder="Album Release Date" required>
     </div>
     <div class="form-group">
         <label for="album-genre">Genre</label>
-        <input type="text" name="album-genre" id="album-genre" class="form-control" placeholder="Album Genre" required>
+        <input type="text" name="genre" id="album-genre" class="form-control" placeholder="Album Genre" required>
     </div>
     <div class="form-group">
         <label for="album-image">Image</label>

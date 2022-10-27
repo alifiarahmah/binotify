@@ -49,17 +49,17 @@ class Song_model
 	{
 		$query = "INSERT INTO $this->table
 										VALUES
-									(:song_title, :song_artist, :release_date, :genre, :duration, :audio_path, :image_path, :album_id)";
+									(NULL, :song_title, :song_artist, :release_date, :genre, :duration, :audio_path, :image_path, :album_id)";
 
 		$this->db->query($query);
-		$this->db->bind('song_title', $data['song_title']);
-		$this->db->bind('song_artist', $data['song_artist']);
-		$this->db->bind('release_date', $data['release_date']);
+		$this->db->bind('song_title', $data['song-title']);
+		$this->db->bind('song_artist', $data['song-artist']);
+		$this->db->bind('release_date', $data['release-date']);
 		$this->db->bind('genre', $data['genre']);
 		$this->db->bind('duration', $data['duration']);
-		$this->db->bind('audio_path', $data['audio_path']);
-		$this->db->bind('image_path', $data['image_path']);
-		$this->db->bind('album_id', $data['album_id']);
+		$this->db->bind('audio_path', $data['audio-path']);
+		$this->db->bind('image_path', $data['image-path']);
+		$this->db->bind('album_id', $data['song-album']);
 
 		$this->db->execute();
 
@@ -91,15 +91,15 @@ class Song_model
 										WHERE song_id = :song_id";
 
 		$this->db->query($query);
-		$this->db->bind('song_title', $data['song_title']);
-		$this->db->bind('song_artist', $data['song_artist']);
-		$this->db->bind('release_date', $data['release_date']);
+		$this->db->bind('song_title', $data['song-title']);
+		$this->db->bind('song_artist', $data['song-artist']);
+		$this->db->bind('release_date', $data['release-date']);
 		$this->db->bind('genre', $data['genre']);
 		$this->db->bind('duration', $data['duration']);
-		$this->db->bind('audio_path', $data['audio_path']);
-		$this->db->bind('image_path', $data['image_path']);
-		$this->db->bind('album_id', $data['album_id']);
-		$this->db->bind('song_id', $data['song_id']);
+		$this->db->bind('audio_path', $data['audio-path']);
+		$this->db->bind('image_path', $data['image-path']);
+		$this->db->bind('album_id', $data['album-id']);
+		$this->db->bind('song_id', $data['song-id']);
 
 		$this->db->execute();
 

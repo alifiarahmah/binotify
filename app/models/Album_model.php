@@ -58,14 +58,14 @@ class Album_model
 	{
 		$query = "INSERT INTO $this->table
 										VALUES
-									(:album_title, :album_artist, :total_duration, :image_path, :tanggal_terbit, :genre)";
+									(NULL, :album_title, :album_artist, :total_duration, :image_path, :tanggal_terbit, :genre)";
 
 		$this->db->query($query);
-		$this->db->bind('album_title', $data['album_title']);
-		$this->db->bind('album_artist', $data['album_artist']);
-		$this->db->bind('total_duration', $data['total_duration']);
-		$this->db->bind('image_path', $data['image_path']);
-		$this->db->bind('tanggal_terbit', $data['tanggal_terbit']);
+		$this->db->bind('album_title', $data['album-title']);
+		$this->db->bind('album_artist', $data['album-artist']);
+		$this->db->bind('total_duration', 0);
+		$this->db->bind('image_path', $data['image-path']);
+		$this->db->bind('tanggal_terbit', $data['tanggal-terbit']);
 		$this->db->bind('genre', $data['genre']);
 
 		$this->db->execute();
@@ -96,13 +96,13 @@ class Album_model
 					WHERE album_id = :album_id";
 
 		$this->db->query($query);
-		$this->db->bind('album_title', $data['album_title']);
-		$this->db->bind('album_artist', $data['album_artist']);
-		$this->db->bind('total_duration', $data['total_duration']);
-		$this->db->bind('image_path', $data['image_path']);
-		$this->db->bind('tanggal_terbit', $data['tanggal_terbit']);
+		$this->db->bind('album_title', $data['album-title']);
+		$this->db->bind('album_artist', $data['album-artist']);
+		$this->db->bind('total_duration', $data['total-duration']);
+		$this->db->bind('image_path', $data['image-path']);
+		$this->db->bind('tanggal_terbit', $data['tanggal-terbit']);
 		$this->db->bind('genre', $data['genre']);
-		$this->db->bind('album_id', $data['album_id']);
+		$this->db->bind('album_id', $data['album-id']);
 
 		$this->db->execute();
 
