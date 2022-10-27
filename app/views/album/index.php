@@ -19,9 +19,9 @@
 					<div class="album-genre"><?= $album['genre']; ?></div>
 				</a>
 			<?php } ?>
-		<?php } else { ?>
-			<p>No albums found</p>
 		</div>
+	<?php } else { ?>
+		<p>No albums found</p>
 	<?php } ?>
 
 </section>

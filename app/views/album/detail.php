@@ -9,14 +9,13 @@
                 <p><?= $data['album']['album_artist'] ?> - <?= $data['album']['tanggal_terbit'] ?> - <?= $data['album']['total_duration'] ?> s total</p>
             </div>
         </div>
-        <div class="song-item-container">
-            <div class="header-row"></div>
-            <div class="header-row"></div>
-            <div class="header-row header-title">song title</div>
-            <div class="header-row header-artist">artist</div>
-            <div class="header-row header-date">date</div>
-            <div class="header-row header-genre">genre</div>
-            <?php if (count($data['songs']) > 0) { ?>
+        <?php if (count($data['songs']) > 0) { ?>
+            <div class="song-item-container">
+                <div class="header-row"></div>
+                <div class="header-row header-title">song title</div>
+                <div class="header-row header-artist">artist</div>
+                <div class="header-row header-date">date</div>
+                <div class="header-row header-genre">genre</div>
                 <?php foreach ($data['songs'] as $i => $song) { ?>
                     <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
                         <div class="song-number"><?= $i + 1 ?></div>
@@ -29,10 +28,10 @@
                         <div class="song-genre"><?= $song['genre']; ?></div>
                     </a>
                 <?php } ?>
-            <?php } else { ?>
-                <p>no songs found</p>
-            <?php } ?>
-        </div>
+            </div>
+        <?php } else { ?>
+            <p>no songs found</p>
+        <?php } ?>
     <?php } else { ?>
         <h1>404 not found</h1>
     <?php } ?>
