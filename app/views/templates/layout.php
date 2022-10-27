@@ -5,7 +5,7 @@
     <!-- Sidebar -->
     <div class="sidebar-container">
         <div class="sidebar-item">
-            <a href="<?= BASE_URL ?>/album">
+            <a href="<?= BASE_URL ?>/album/1">
                 <button class="button-sidebar">
                     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                         <path d="M36 0H12C9.8 0 8 1.8 8 4V28C8 30.2 9.8 32 12 32H36C38.2 32 40 30.2 40 28V4C40 1.8 38.2 0 36 0ZM32 10H26V21C26 23.76 23.76 26 21 26C18.24 26 16 23.76 16 21C16 18.24 18.24 16 21 16C22.14 16 23.16 16.38 24 17.02V6H32V10ZM4 8H0V36C0 38.2 1.8 40 4 40H32V36H4V8Z" />
