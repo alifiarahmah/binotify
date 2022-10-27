@@ -20,6 +20,7 @@
         <?php include 'public/css/components/layout.css'; ?>
         <?php include 'public/css/components/pagination.css'; ?>
         <?php include 'public/css/components/login.css'; ?>
+        <?php include 'public/css/components/form.css'; ?>
 
         <?php include 'public/css/views/home.css'; ?>
         <?php include 'public/css/views/search.css'; ?>
