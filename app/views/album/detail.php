@@ -2,7 +2,7 @@
     <?php if ($data['album']) { ?>
         <div class="album-details">
             <div class="album-details" id="album-picture">
-                <img src="../../<?= $data['album']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
+                <img src="<?= BASE_URL ?>/<?= $data['album']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
             </div>
             <div class="album-info">
                 <h1><?= $data['album']['album_title'] ?></h1>
@@ -35,7 +35,7 @@
                 <?php foreach ($data['songs'] as $i => $song) { ?>
                     <a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
                         <div class="song-picture">
-                            <image src="../../<?= $song['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
+                            <image src="<?= BASE_URL ?>/<?= $song['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
                         </div>
                         <div class="song-title"><?= $song['song_title']; ?></div>
                         <div class="song-artist"><?= $song['song_artist']; ?></div>

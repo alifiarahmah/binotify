@@ -2,7 +2,7 @@
     <?php if ($data['song']) { ?>
         <div class="song-details">
             <div class="song-details" id="album-picture">
-                <img src="../<?=$data['song']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
+                <img src="<?= BASE_URL?>/<?=$data['song']['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="150" height="150">
             </div>
             <div class="song-info">
                 <h1><?= $data['song']['song_title'] ?></h1>
@@ -31,7 +31,7 @@
         <div class="audio-player-container">
             <div class="audio-player">
                 <audio controls>
-                    <source src="../<?= $data['song']['audio_path'] ?>" type="audio/mpeg">
+                    <source src="<?= BASE_URL ?>/<?= $data['song']['audio_path'] ?>" type="audio/mpeg">
             </div>
         </div>
     <?php } else { ?>

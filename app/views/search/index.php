@@ -61,7 +61,7 @@
 				<?php foreach ($data['songs'] as $i => $song) { ?>
 					<a class="content-row" href="<?= BASE_URL ?>/song/<?= $song['song_id'] ?>">
 						<div class="song-picture">
-							<image src="<?= $song['image_path'] ?? "https://binotify.blob.core.windows.net/photo/placeholder.jpg" ?>" width="42px" height="42px">
+							<image src="<?= BASE_URL ?>/<?= $song['image_path'] ?? "public/assets/image/placeholder.jpg" ?>" width="42px" height="42px">
 						</div>
 						<div class="song-title"><?= $song['song_title']; ?></div>
 						<div class="song-artist"><?= $song['song_artist']; ?></div>
