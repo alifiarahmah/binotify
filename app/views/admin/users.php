@@ -1,6 +1,6 @@
 <div>
     <h1>
-        Users list in this page
+        User List
     </h1>
     <table>
         <tr>
