@@ -120,15 +120,20 @@ class User_model
             $_SESSION['error'] = 'Silakan isi terlebih dahulu.';
             header('Location: ' . BASE_URL . '/register');
         }
-        else if ($password !== $confirm) {
+        elseif ($password !== $confirm) {
             $_SESSION['error'] = 'Password tidak cocok. Silakan ulangi lagi.';
             header('Location: ' . BASE_URL . '/register');
         }
         else {
-            $email_exists = $this->getUserByEmail($username);
+            $email_exists = $this->getUserByEmail($email);
             $username_exists = $this->getUserByUsername($username);
-            if ($email_exists && $username_exists) {
-                $_SESSION['error'] = 'Username atau email sudah terdaftar sebelumnya.';
+            if ($email_exists) {
+                $_SESSION['error'] = 'Email sudah terdaftar sebelumnya.';
+                header('Location: ' . BASE_URL . '/register');
+                exit;
+            }
+            elseif ($username_exists) {
+                $_SESSION['error'] = 'Username sudah terdaftar sebelumnya.';
                 header('Location: ' . BASE_URL . '/register');
                 exit;
             }

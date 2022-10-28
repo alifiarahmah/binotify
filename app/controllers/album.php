@@ -101,7 +101,7 @@ class Album extends Controller
 				'album' => $album,
 				'songs' => $songs
 			]);
-		} else if ($data['mode'] == 'all') {
+		} elseif ($data['mode'] == 'all') {
 			$current_page = $data['current_page'];
 
 			// pagination
@@ -117,10 +117,10 @@ class Album extends Controller
 				'current_page' => $current_page,
 				'total_page' => $total_page
 			]);
-		} else if ($data['mode'] == 'add') {
+		} elseif ($data['mode'] == 'add') {
 			$data['content'] = 'album/add';
 			$this->view($data['content']);
-		} else if ($data['mode'] == 'edit') {
+		} elseif ($data['mode'] == 'edit') {
 			$data['content'] = 'album/edit';
 			$album = $this->model('Album_model')->getAlbumById($data['id']);
 			$this->view($data['content'], [

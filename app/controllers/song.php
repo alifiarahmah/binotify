@@ -106,13 +106,13 @@ class Song extends Controller
             $this->view($data['content'], [
                 'albums' => $albums,
             ]);
-        } else if ($data['mode'] == 'index') {
+        } elseif ($data['mode'] == 'index') {
             $data['content'] = 'song/index';
             $song = $this->model('Song_model')->getSongById($data['id']);
             $this->view($data['content'], [
                 'song' => $song,
             ]);
-        } else if ($data['mode'] == 'edit') {
+        } elseif ($data['mode'] == 'edit') {
             $data['content'] = 'song/edit';
             $song = $this->model('Song_model')->getSongById($data['id']);
             $albums = $this->model('Album_model')->getAllAlbums();
