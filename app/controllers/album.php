@@ -2,6 +2,9 @@
 
 class Album extends Controller
 {
+	function __construct() {
+        session_start();
+    }
 	public function index($current_page = 1)
 	{
 		$data['title'] = 'All Albums';

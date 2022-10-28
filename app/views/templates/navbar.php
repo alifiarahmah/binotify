@@ -21,6 +21,9 @@
 
 	<div class="navbar-group">
 		<!-- TODO: bedain auth nggak -->
+		<?php
+		if (!isset($_SESSION['username'])) {
+		?>
 		<div class="auth">
 			<a href="<?= BASE_URL ?>/login">
 				<button class="button-outline">log in</button>
@@ -30,6 +33,21 @@
 			</a>
 			<!-- <button class="button-solid">log out</button> -->
 		</div>
+		<?php
+		} else {
+		?>
+		<div class="auth">
+			<p>Halo, <?= $_SESSION['username'] ?></p>
+			<a href="<?= BASE_URL ?>/user">
+				<button class="button-solid">profile</button>
+			</a>
+			<a href="<?= BASE_URL ?>/logout">
+				<button class="button-solid">log out</button>
+			</a>
+		</div>
+		<?php
+		}
+		?>
 		<button id="close-search" onClick="hideSearch()">
 			<svg width="29" height="29" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg">
 				<path d="M29 2.92071L26.0793 0L14.5 11.5793L2.92071 0L0 2.92071L11.5793 14.5L0 26.0793L2.92071 29L14.5 17.4207L26.0793 29L29 26.0793L17.4207 14.5L29 2.92071Z" fill="white" />

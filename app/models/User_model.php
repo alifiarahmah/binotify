@@ -57,7 +57,7 @@ class User_model
     public function validateUser() {
         include_once __DIR__ . '/../config/config.php';
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = hash('sha256', $_POST['password']);
         if ($username === '' || $password === '') {
             $_SESSION['error'] = 'Silakan isi terlebih dahulu.';
             header('Location: ' . BASE_URL . '/login');
@@ -136,7 +136,7 @@ class User_model
                 $data = [];
                 $data['email'] = $email;
                 $data['username'] = $username;
-                $data['password'] = $password;
+                $data['password'] = hash('sha256', $password);
 
                 $this->addUser($data);
                 $_SESSION['success'] = 'Berhasil mendaftar. Silakan login.';

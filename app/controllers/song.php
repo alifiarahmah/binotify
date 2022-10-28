@@ -2,6 +2,9 @@
 
 class Song extends Controller
 {
+    function __construct() {
+        session_start();
+    }
     public function index($id = 0)
     {
         $this->view('templates/layout', [

@@ -2,6 +2,9 @@
 
 class Home extends Controller
 {
+    function __construct() {
+        session_start();
+    }
     public function index()
     {
         $data['title'] = 'Listen to all songs';
