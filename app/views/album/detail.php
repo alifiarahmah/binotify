@@ -6,7 +6,7 @@
             </div>
             <div class="album-info">
                 <h1><?= $data['album']['album_title'] ?></h1>
-                <p><?= $data['album']['album_artist'] ?> - <?= $data['album']['tanggal_terbit'] ?> - <?= $data['album']['total_duration'] ?> s total</p>
+                <p><?= $data['album']['album_artist'] ?> - <?= $data['album']['tanggal_terbit'] ?> - <?= floor($data['album']['total_duration']/60) ?> m <?= $data['album']['total_duration']%60 ?> s total</p>
                 <?php
                 if (isset ($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 ?>
