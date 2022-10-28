@@ -37,7 +37,15 @@ Aplikasi **binotify** dibuat untuk memenuhi tugas mata kuliah Pengembangan Aplik
 
 ## _Screenshots_
 
+
 ## Pembagian Tugas
+![Desktop](public/images/album-desktop.png)
+![](public/images/album-mobile.png)
+![Desktop](public/images/home-desktop.png)
+![](public/images/home-mobile.png)
+![](public/images/login-desktop.png)
+![](public/images/register.png)
+![](public/images/search-desktop.png)
 
 ### Server Side
   * Login: 13520098
