@@ -20,7 +20,7 @@
 					data[i].song_id +
 					'">';
 				html += '<div class="song-picture">';
-				html += '<image src="" width="42px" height="42px">';
+				html += '<image src="<?= BASE_URL ?>/' + data[i].image_path + '" width="42px" height="42px">';
 				html += "</div>";
 				html += '<div class="song-title">' + data[i].song_title + "</div>";
 				html += '<div class="song-artist">' + data[i].song_artist + "</div>";
@@ -32,7 +32,6 @@
 			paginationPages.innerHTML = current_page + " / " + total_page;
 		}
 
-		total_page = 1;
 		let xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -41,9 +40,12 @@
 				data = raw_data.songs;
 				current_page = raw_data.current_page;
 				total_page = raw_data.total_page;
+				sort = raw_data.sort;
+				filter = raw_data.filter;
 				renderSongs(data, current_page, total_page);
 			}
 		};
+		console.log("<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/<?= $data['current_page'] ?>")
 		xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/<?= $data['current_page'] ?>", true);
 		xhttp.send();
 
@@ -57,9 +59,12 @@
 						data = raw_data.songs;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
+						total_page = raw_data.total_page;
+						sort = raw_data.sort;
+						filter = raw_data.filter;
 						renderSongs(data, current_page, total_page);
 					}
-				}
+				};
 				xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page, true);
 				xhttp.send();
 			}
@@ -75,9 +80,12 @@
 						data = raw_data.songs;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
+						total_page = raw_data.total_page;
+						sort = raw_data.sort;
+						filter = raw_data.filter;
 						renderSongs(data, current_page, total_page);
 					}
-				}
+				};
 				xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page, true);
 				xhttp.send();
 			}
@@ -93,9 +101,11 @@
 						data = raw_data.songs;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
+						sort = raw_data.sort;
+						filter = raw_data.filter;
 						renderSongs(data, current_page, total_page);
 					}
-				}
+				};
 				xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page, true);
 				xhttp.send();
 			}
@@ -111,22 +121,80 @@
 						data = raw_data.songs;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
+						total_page = raw_data.total_page;
+						sort = raw_data.sort;
+						filter = raw_data.filter;
 						renderSongs(data, current_page, total_page);
 					}
-				}
+				};
 				xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page, true);
 				xhttp.send();
 			}
 		}
+
+		function handleSort() {
+			let filter = document.getElementById("filter").value;
+			let sort = document.getElementById("sort").value;
+			let xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					let raw_data = JSON.parse(this.responseText);
+					data = raw_data.songs;
+					current_page = raw_data.current_page;
+					total_page = raw_data.total_page;
+					sort = raw_data.sort;
+					filter = raw_data.filter;
+					renderSongs(data, current_page, total_page);
+				}
+			};
+			xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page + "/" + sort, true);
+			xhttp.send();
+		}
+
+		function handleFilter() {
+			let filter = document.getElementById("filter").value;
+			let sort = document.getElementById("sort").value;
+			let xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					let raw_data = JSON.parse(this.responseText);
+					data = raw_data.songs;
+					current_page = raw_data.current_page;
+					total_page = raw_data.total_page;
+					sort = raw_data.sort;
+					filter = raw_data.filter;
+					renderSongs(data, current_page, total_page);
+				}
+			};
+			xhttp.open("GET", "<?= BASE_URL ?>/api/search/<?= $data['search'] ?>/" + current_page + "/" + sort + "/" + filter, true);
+			xhttp.send();
+		}
 	</script>
 
-	<div>
-		<h1>Searching for "<?= $data['search'] ?>"</h1>
-		<p>Found <?= $data['item_count']; ?> songs</p>
+	<div class="search-header">
+		<div>
+			<h1>Searching for "<?= $data['search'] ?>"</h1>
+			<p>Found <?= $data['item_count']; ?> songs</p>
+		</div>
+		<div class="search-option-container">
+			<select title="Sort" name="sort" id="sort" class="button-solid" onchange="handleSort()">
+				<option value="" disabled>Sort by</option>
+				<option value="">Unsorted</option>
+				<option value="title-asc">Title (A-Z)</option>
+				<option value="title-desc">Title (Z-A)</option>
+				<option value="date-desc">Release Date (Newest First)</option>
+				<option value="date-asc">Release Date (Oldest First)</option>
+			</select>
+			<select title="Filter" name="filter" id="filter" class="button-solid" onchange="handleFilter()">
+				<option value="" disabled>Genre</option>
+				<option value="all">All genres</option>
+				<?php foreach ($data['genres'] as $genre) { ?>
+					<option value="<?= $genre['genre']; ?>"><?= $genre['genre']; ?></option>
+				<?php } ?>
+				<option value="NULL">-</option>
+			</select>
+		</div>
 	</div>
-
-
-	<div id="song-container"></div>
 
 	<div class="song-item-container" id="song-item-container">
 		<div class="header-row"></div>
