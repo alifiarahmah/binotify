@@ -28,9 +28,11 @@
                 <?php } ?>
             </div>
         </div>
-        <div class="audio-player">
-            <audio controls>
-                <source src="../<?= $data['song']['audio_path'] ?>" type="audio/mpeg">
+        <div class="audio-player-container">
+            <div class="audio-player">
+                <audio controls>
+                    <source src="../<?= $data['song']['audio_path'] ?>" type="audio/mpeg">
+            </div>
         </div>
     <?php } else { ?>
         <h1>404 not found</h1>
