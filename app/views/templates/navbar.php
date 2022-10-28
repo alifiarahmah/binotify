@@ -20,7 +20,6 @@
 	</div>
 
 	<div class="navbar-group">
-		<!-- TODO: bedain auth nggak -->
 		<?php
 		if (!isset($_SESSION['username'])) {
 		?>
@@ -44,6 +43,15 @@
 			<a href="<?= BASE_URL ?>/logout">
 				<button class="button-solid">log out</button>
 			</a>
+			<?php
+			if ($_SESSION['isAdmin']) {
+			?>
+			<a href="<?= BASE_URL ?>/admin">
+				<button class="button-solid">admin page</button>
+			</a>
+			<?php
+			}
+			?>
 		</div>
 		<?php
 		}
@@ -70,11 +78,36 @@
 
 	<div class="drawer-body">
 		<h1 id="logo">binotify</h1>
-		<a href="<?= BASE_URL ?>/login">
-			<button class="button-outline">Login</button>
-		</a>
-		<a href="<?= BASE_URL ?>/register">
-			<button class="button-solid">Sign Up</button>
-		</a>
+		<?php
+		if (!isset($_SESSION['username'])) {
+		?>
+			<a href="<?= BASE_URL ?>/login">
+				<button class="button-outline">log in</button>
+			</a>
+			<a href="<?= BASE_URL ?>/register">
+				<button class="button-solid">sign up</button>
+			</a>
+		<?php
+		} else {
+		?>
+			<p>Halo, <?= $_SESSION['username'] ?></p>
+			<a href="<?= BASE_URL ?>/user">
+				<button class="button-solid">profile</button>
+			</a>
+			<a href="<?= BASE_URL ?>/logout">
+				<button class="button-solid">log out</button>
+			</a>
+			<?php
+			if ($_SESSION['isAdmin']) {
+			?>
+			<a href="<?= BASE_URL ?>/admin">
+				<button class="button-solid">admin page</button>
+			</a>
+			<?php
+			}
+			?>
+		<?php
+		}
+		?>
 	</div>
 </div>
