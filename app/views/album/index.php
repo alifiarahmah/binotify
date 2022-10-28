@@ -122,8 +122,6 @@
 
 	<h1>All Albums</h1>
 
-	<div id="album-container"></div>
-
 	<div class="song-item-container" id="song-item-container">
 		<div class="header-row"></div>
 		<div class="header-row header-title">album title</div>
