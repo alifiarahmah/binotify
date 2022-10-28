@@ -22,5 +22,4 @@
         }
         ?>
     </table>
-    <a href="<?php echo BASE_URL; ?>/admin">Kembali ke page dashboard</a>
 </div>
