@@ -1,4 +1,4 @@
-<?php if ($data['song']) { ?>
+<?php if ($data['song'] && $_SESSION['isAdmin']) { ?>
     <h1>Edit Song</h1>
     <div class="form-container">
         <form action="<?= BASE_URL ?>/song/save/<?= $data['song']['song_id'] ?>" method="POST" enctype="multipart/form-data">
@@ -8,7 +8,7 @@
             </div>
             <div class="form-group">
                 <label for="song-artist">Artist</label>
-                <input type="text" name="song-artist" id="song-artist" class="input-outline" placeholder="Song Artist" value="<?= $data['song']['song_artist'] ?>" required>
+                <input type="text" name="song-artist" id="song-artist" class="input-outline" placeholder="Song Artist" value="<?= $data['song']['song_artist'] ?>" disabled>
             </div>
             <div class="form-group">
                 <label for="song-release-date">Release Date</label>

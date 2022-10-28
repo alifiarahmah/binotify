@@ -1,4 +1,4 @@
-<?php if ($data['album']) { ?>
+<?php if ($data['album'] && $_SESSION['isAdmin']) { ?>
     <h1>Edit Album</h1>
     <div class="form-container">
         <form action="<?= BASE_URL ?>/album/save/<?= $data['album']['album_id'] ?>" method="POST" enctype="multipart/form-data">
