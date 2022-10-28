@@ -87,7 +87,6 @@ class Song_model
 	{
 		$query = "UPDATE $this->table SET
 										song_title = :song_title,
-										song_artist = :song_artist,
 										release_date = :release_date,
 										genre = :genre,
 										image_path = :image_path,
@@ -96,7 +95,6 @@ class Song_model
 
 		$this->db->query($query);
 		$this->db->bind('song_title', $data['song-title']);
-		$this->db->bind('song_artist', $data['song-artist']);
 		$this->db->bind('release_date', $data['release-date']);
 		$this->db->bind('genre', $data['genre']);
 		$this->db->bind('image_path', $data['image-path']);
