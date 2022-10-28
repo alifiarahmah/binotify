@@ -36,22 +36,26 @@
 		} else {
 		?>
 		<div class="auth">
-			<p>Hello, <?= $_SESSION['username'] ?></p>
-			<a href="<?= BASE_URL ?>/user">
-				<button class="button-solid">profile</button>
-			</a>
-			<a href="<?= BASE_URL ?>/logout">
-				<button class="button-solid">log out</button>
-			</a>
-			<?php
-			if ($_SESSION['isAdmin']) {
-			?>
-			<a href="<?= BASE_URL ?>/admin">
-				<button class="button-solid">admin page</button>
-			</a>
-			<?php
-			}
-			?>
+			<?php if ($_SESSION['isAdmin']) { ?>
+				<p class="greetings">Hello, <?= $_SESSION['username'] ?></p>
+				<a href="<?= BASE_URL ?>/song/add">
+					<button class="button-solid">add song</button>
+				</a>
+				<a href="<?= BASE_URL ?>/album/add">
+					<button class="button-solid">add album</button>
+				</a>
+				<a href="<?= BASE_URL ?>/admin">
+					<button class="button-solid">admin page</button>
+				</a>
+			<?php } else { ?>
+				<p class="greetings">Hello, <?= $_SESSION['username'] ?></p>
+				<a href="<?= BASE_URL ?>/user">
+					<button class="button-solid">profile</button>
+				</a>
+				<a href="<?= BASE_URL ?>/logout">
+					<button class="button-solid">log out</button>
+				</a>
+			<?php } ?>
 		</div>
 		<?php
 		}
