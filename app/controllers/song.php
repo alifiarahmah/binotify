@@ -40,8 +40,11 @@ class Song extends Controller
             $song_audio = $_FILES['song-file'];
             $song_audio_path = $this->store_audio($song_audio);
             $_POST['audio-path'] = $song_audio_path;
+            $duration = $_FILES['song-file']['size'] * 8 / (128 * 1024);
+            $_POST['duration'] = ceil($duration);
         } else {
             $_POST['audio-path'] = 'default.mp3';
+            $_POST['duration'] = 0;
         }
 
         $song_image = $_FILES['song-image'];

@@ -19,10 +19,6 @@
                 <input type="text" name="genre" id="song-genre" class="input-outline" placeholder="Song Genre" required>
             </div>
             <div class="form-group">
-                <label for="song-duration">Duration</label>
-                <input type="number" name="duration" id="song-duration" class="input-outline" placeholder="Song Duration" required>
-            </div>
-            <div class="form-group">
                 <label for="song-album">Album</label>
                 <select name="song-album" id="song-album" class="form-control" required>
                     <option value="" selected disabled>Select Album</option>
