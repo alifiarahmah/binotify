@@ -20,7 +20,7 @@
 					data[i].album_id +
 					'">';
 				html += '<div class="album-picture">';
-				html += '<image src="" width="42px" height="42px">';
+				html += '<image src="<?= BASE_URL ?>/' + data[i].image_path + '" width="42px" height="42px">';
 				html += "</div>";
 				html += '<div class="album-title">' + data[i].album_title + "</div>";
 				html += '<div class="album-artist">' + data[i].album_artist + "</div>";
