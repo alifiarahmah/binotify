@@ -14,3 +14,13 @@ function hideSearch() {
 	search.style.display = "none";
 	closeSearch.style.display = "none";
 }
+
+function changeSearchAction() {
+	var searchForm = document.getElementById("search-bar-container");
+	var searchInput = document.getElementById("search-keyword");
+	if (searchInput.value === "") {
+		searchForm.action = "<?= BASE_URL ?>/search";
+	} else {
+		searchForm.action = "<?= BASE_URL ?>/search/" + searchInput.value;
+	}
+}
