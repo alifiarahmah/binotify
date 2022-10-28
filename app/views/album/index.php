@@ -1,6 +1,6 @@
 <section id="albums">
 	<script>
-		function renderAlbums(data) {
+		function renderAlbums(data, current_page, total_page) {
 			let result = document.getElementById('song-item-container');
 			let firstButton = document.getElementById('first-button');
 			let prevButton = document.getElementById('prev-button');
@@ -29,6 +29,7 @@
 				html += "</a>";
 			}
 			result.innerHTML = temp + html;
+			paginationPages.innerHTML = current_page + " / " + total_page;
 		}
 
 		current_page = 1;
@@ -40,7 +41,7 @@
 				data = raw_data.albums;
 				current_page = raw_data.current_page;
 				total_page = raw_data.total_page;
-				renderAlbums(data);
+				renderAlbums(data, current_page, total_page);
 			}
 		}
 		xhttp.open("GET", "<?= BASE_URL ?>/api/album", true);
@@ -56,7 +57,7 @@
 						data = raw_data.albums;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
-						renderAlbums(data);
+						renderAlbums(data, current_page, total_page);
 					}
 				}
 				xhttp.open("GET", "<?= BASE_URL ?>/api/album/" + current_page, true);
@@ -74,7 +75,7 @@
 						data = raw_data.albums;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
-						renderAlbums(data);
+						renderAlbums(data, current_page, total_page);
 					}
 				}
 				xhttp.open("GET", "<?= BASE_URL ?>/api/album/" + current_page, true);
@@ -92,7 +93,7 @@
 						data = raw_data.albums;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
-						renderAlbums(data);
+						renderAlbums(data, current_page, total_page);
 					}
 				}
 				xhttp.open("GET", "<?= BASE_URL ?>/api/album/" + current_page, true);
@@ -110,7 +111,7 @@
 						data = raw_data.albums;
 						current_page = raw_data.current_page;
 						total_page = raw_data.total_page;
-						renderAlbums(data);
+						renderAlbums(data, current_page, total_page);
 					}
 				}
 				xhttp.open("GET", "<?= BASE_URL ?>/api/album/" + current_page, true);
