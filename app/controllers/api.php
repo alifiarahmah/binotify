@@ -30,7 +30,7 @@ class Api extends Controller
 		}
 	}
 
-	public function search($keyword = "", $sort = "", $filter = "all", $current_page = 1)
+	public function search($keyword = "", $current_page = 1, $sort = "", $filter = "all")
 	{
 		$query = $this->model('Song_model')->searchSong($keyword, $sort, $filter, $current_page);
 
@@ -44,7 +44,7 @@ class Api extends Controller
 			'search' => $keyword,
 			'songs' => $songs,
 			'item_count' => $item_count,
-			'current_page' => $current_page,
+			'current_page' => intval($current_page),
 			'total_page' => $total_page,
 			'sort' => $sort,
 			'filter' => $filter
