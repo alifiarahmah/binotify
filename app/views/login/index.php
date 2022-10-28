@@ -1,5 +1,5 @@
 <div class="login-container">
-    <h1 class="login-title">Untuk melanjutkan, silakan login terlebih dahulu</h1>
+    <h1 class="login-title">To continue, please log in first.</h1>
     <form action="login/validate" method="post" class="login-form">
         <input class="login-input" type="text" name="username" placeholder="Username" />
         <input class="login-input" type="password" name="password" placeholder="Password" />
@@ -13,5 +13,5 @@
         }
         ?>
     </p>
-    <p class="login-register">Belum punya akun? <a href="register">Daftar</a></p>
+    <p class="login-register">Don't have an account? <a href="register">Register</a></p>
 </div>

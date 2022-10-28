@@ -1,6 +1,6 @@
 <div>
     <h1>
-        Daftar Pengguna di page ini
+        Users list in this page
     </h1>
     <table>
         <tr>

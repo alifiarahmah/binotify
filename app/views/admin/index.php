@@ -1,6 +1,6 @@
 <div>
     <h1>
-        Selamat datang di page admin, 
+        Welcome to Admin Dashboard page, 
         <?php
         echo $_SESSION['username'];
         ?>

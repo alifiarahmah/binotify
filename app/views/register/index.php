@@ -1,5 +1,5 @@
 <div class="login-container">
-    <h1 class="login-title">Selamat datang di Binotify! Silakan isi data berikut untuk mendaftar.</h1>
+    <h1 class="login-title">Welcome to Binotify! Please fill this form to register.</h1>
     <form action="register/validate" method="post" class="login-form">
         <input class="login-input" type="email" name="email" placeholder="Email" />
         <input class="login-input" type="text" name="username" placeholder="Username" />
@@ -15,5 +15,5 @@
         }
         ?>
     </p>
-    <p class="login-register">Sudah punya akun? <a href="login">Masuk</a></p>
+    <p class="login-register">Have an account? <a href="login">Log in</a></p>
 </div>

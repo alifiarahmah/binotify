@@ -36,7 +36,7 @@
 		} else {
 		?>
 		<div class="auth">
-			<p>Halo, <?= $_SESSION['username'] ?></p>
+			<p>Hello, <?= $_SESSION['username'] ?></p>
 			<a href="<?= BASE_URL ?>/user">
 				<button class="button-solid">profile</button>
 			</a>
@@ -90,7 +90,7 @@
 		<?php
 		} else {
 		?>
-			<p>Halo, <?= $_SESSION['username'] ?></p>
+			<p>Hello, <?= $_SESSION['username'] ?></p>
 			<a href="<?= BASE_URL ?>/user">
 				<button class="button-solid">profile</button>
 			</a>
